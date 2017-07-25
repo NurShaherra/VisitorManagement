@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DisplayUserInfo"></activity>
+        <activity android:name=".SecurityGuardActivity"></activity>
     </application>
 
 </manifest>
