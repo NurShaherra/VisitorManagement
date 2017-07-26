@@ -26,14 +26,11 @@ public class DisplayUserInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display_user_info);
 
         listView = (ListView) findViewById(R.id.lvUser);
         intent = getIntent();
-    }
 
-    public void onResume() {
-        super.onResume();
         al.clear();
         // Check if there is network access
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -72,4 +69,5 @@ public class DisplayUserInfo extends AppCompatActivity {
 
         }
     }
-}
+    }
+
