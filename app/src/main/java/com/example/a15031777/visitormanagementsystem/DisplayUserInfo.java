@@ -30,8 +30,9 @@ public class DisplayUserInfo extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.lvUser);
         intent = getIntent();
+        al = new ArrayList<String>();
 
-        al.clear();
+
         // Check if there is network access
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -54,14 +55,11 @@ public class DisplayUserInfo extends AppCompatActivity {
                 // Populate the arraylist personList
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
-                    al = new ArrayList<String>();
-                    aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
-                    al.add(jObj.getString("username"));
-
-                    listView.setAdapter(aa);
-                    aa.notifyDataSetChanged();
-
+                    al.add(jObj.getString("user_name"));
                 }
+                aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
+                listView.setAdapter(aa);
+                aa.notifyDataSetChanged();
 
             } catch (Exception e) {
                 e.printStackTrace();
