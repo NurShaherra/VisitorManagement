@@ -41,7 +41,7 @@ public class DisplayUserInfo extends AppCompatActivity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //helper class - parse in the http url
-            HttpRequest request = new HttpRequest("http://10.0.2.2/FYP/getAllUsers.php");
+            HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllUsers.php");
             //specify the method
             request.setMethod("GET");
             //call the webservice
