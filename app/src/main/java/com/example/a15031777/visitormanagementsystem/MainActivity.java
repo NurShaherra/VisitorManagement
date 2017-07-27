@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent i = new Intent(MainActivity.this, SecurityGuardActivity.class);
                                     startActivity(i);
                                 } else if(role.equalsIgnoreCase("admin")){
-                                    Intent i = new Intent(MainActivity.this,DisplayUserInfo.class);
+                                    Intent i = new Intent(MainActivity.this,AdminActivity.class);
                                     startActivity(i);
                                 }
 
