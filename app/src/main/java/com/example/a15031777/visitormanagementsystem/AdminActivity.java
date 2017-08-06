@@ -36,10 +36,11 @@ public class AdminActivity extends AppCompatActivity {
         lvThings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0) {
-                    Intent i = new Intent(AdminActivity.this, DisplayUserInfo.class);
-                    startActivity(i);
-                }
+//                if(position == 0) {
+//
+//                }
+                Intent i = new Intent(AdminActivity.this, DisplayUserInfo.class);
+                startActivity(i);
 //                } else if(position == 1){
 //                    Intent i = new Intent(AdminActivity.this, DisplayVisitorInfo.class);
 //                    startActivity(i);

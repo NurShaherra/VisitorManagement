@@ -51,60 +51,61 @@ public class DisplayUserInfo extends AppCompatActivity {
             request.setMethod("GET");
             //call the webservice
             request.execute();
-            try {
-                //get the response back
-                String jsonString = request.getResponse();
-                System.out.println(">>" + jsonString);
-
-                //do something with json string
-                JSONArray jsonArray = new JSONArray(jsonString);
-
-                // Populate the arraylist personList
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    al.add(jObj.getString("user_role"));
-                }
-
-                aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
-                listView.setAdapter(aa);
-                aa.notifyDataSetChanged();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+//            try {
+//                //get the response back
+//                String jsonString = request.getResponse();
+//                System.out.println(">>" + jsonString);
 //
-//            spn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    if(spn.getSelectedItem().toString().equalsIgnoreCase("Administrator")) {
-//                        al.clear();
-//                        try {
-//                            //get the response back
-//                            String jsonString = request.getResponse();
-//                            System.out.println(">>" + jsonString);
+//                //do something with json string
+//                JSONArray jsonArray = new JSONArray(jsonString);
 //
-//                            //do something with json string
-//                            JSONArray jsonArray = new JSONArray(jsonString);
-//
-//                            // Populate the arraylist personList
-//                            for (int i = 0; i < jsonArray.length(); i++) {
-//                                JSONObject jObj = jsonArray.getJSONObject(i);
-//
-//                                al.add(jObj.getString("user_name"));
-//
-//                            }
-
-//
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
+//                // Populate the arraylist personList
+//                for (int i = 0; i < jsonArray.length(); i++) {
+//                    JSONObject jObj = jsonArray.getJSONObject(i);
+//                    al.add(jObj.getString("user_role"));
 //                }
 //
+                aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
+
 //
-//            });
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+
+            spn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    if(spn.getSelectedItem().toString().equalsIgnoreCase("Administrator")) {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+//                                String role = jObj.getString("user_role");
+//                                if (role.equalsIgnoreCase("admin")){
+                                    al.add(jObj.getString("user_name"));
+//                                }
+                            }
+                            listView.setAdapter(aa);
+                            aa.notifyDataSetChanged();
+
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+            });
 
 
 
