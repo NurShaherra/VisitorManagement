@@ -21,7 +21,10 @@
         </activity>
         <activity android:name=".DisplayUserInfo" />
         <activity android:name=".SecurityGuardActivity" />
-        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".DisplayVisitorInfo" />
+        <activity android:name=".ViewSummary" />
+        <activity android:name=".ProfilePage"></activity>
     </application>
 
 </manifest>
