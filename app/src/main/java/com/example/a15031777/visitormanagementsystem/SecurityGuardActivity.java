@@ -40,13 +40,13 @@ public class SecurityGuardActivity extends AppCompatActivity {
 //                    Intent i = new Intent(SecurityGuardActivity.this, HostActivity.class);
 //                    startActivity(i);
                 } else if (position == 1) {
-//                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-//                    edit.putString("sign","Sign In").commit();
-//                    startActivity(i);
+                    Intent i = new Intent(SecurityGuardActivity.this,QRManualActivity.class);
+                    edit.putString("sign","Sign In").commit();
+                    startActivity(i);
                 } else if (position == 2) {
-//                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-//                    edit.putString("sign","Sign Out").commit();
-//                    startActivity(i);
+                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
+                    edit.putString("sign","Sign Out").commit();
+                    startActivity(i);
                 }
 
 

@@ -15,8 +15,7 @@
     <string name="username">Username:</string>
     <string name="password">Password:</string>
     <string name="email">Email:</string>
-    <string name="add">Add</string>
-    <string name="icNumber">IC Number:</string>
+    <string name="add">Add</string>s
     <string name="arrivedBy">Arrived By:</string>
     <string name="license">License Plate Number:</string>
     <string name="confirm">Confirm</string>
@@ -25,6 +24,8 @@
     <string name="address">Address:</string>
     <string name="mobileNumber">Mobile Number:</string>
     <string name="mobileNum">Mobile Number:</string>
+    <string name="id">Visitor Id:</string>
+    <string name="mobile">Mobile Number:</string>
     <string-array name="roles">
         <item>All</item>
         <item>Administrator</item>
