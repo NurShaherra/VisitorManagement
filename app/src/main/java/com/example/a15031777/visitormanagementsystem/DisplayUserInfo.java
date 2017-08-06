@@ -51,31 +51,14 @@ public class DisplayUserInfo extends AppCompatActivity {
             request.setMethod("GET");
             //call the webservice
             request.execute();
-//            try {
-//                //get the response back
-//                String jsonString = request.getResponse();
-//                System.out.println(">>" + jsonString);
-//
-//                //do something with json string
-//                JSONArray jsonArray = new JSONArray(jsonString);
-//
-//                // Populate the arraylist personList
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    JSONObject jObj = jsonArray.getJSONObject(i);
-//                    al.add(jObj.getString("user_role"));
-//                }
-//
+
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
 
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-
-            spn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if(spn.getSelectedItem().toString().equalsIgnoreCase("Administrator")) {
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItem = parent.getItemAtPosition(position).toString();
+                    if (selectedItem.equalsIgnoreCase("Administrator")) {
                         al.clear();
                         try {
                             //get the response back
@@ -88,23 +71,114 @@ public class DisplayUserInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-//                                String role = jObj.getString("user_role");
-//                                if (role.equalsIgnoreCase("admin")){
-                                    al.add(jObj.getString("user_name"));
-//                                }
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("admin")){
+                                al.add(jObj.getString("user_name"));
+                                }
                             }
-                            listView.setAdapter(aa);
-                            aa.notifyDataSetChanged();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Security Guard")){
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("security guard")){
+                                    al.add(jObj.getString("user_name"));
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Manager")){
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("manager")){
+                                    al.add(jObj.getString("user_name"));
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Host")) {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("host")){
+                                    al.add(jObj.getString("user_name"));
+                                }
+                            }
+
 
 
 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                    } else {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                    al.add(jObj.getString("user_name"));
+
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
+
+                    listView.setAdapter(aa);
+                    aa.notifyDataSetChanged();
                 }
 
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
+                }
             });
 
 
