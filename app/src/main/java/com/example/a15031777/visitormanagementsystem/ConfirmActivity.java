@@ -71,11 +71,32 @@ public class ConfirmActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
+                    ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                    if (networkInfo != null && networkInfo.isConnected()) {
 
-                    Toast.makeText(ConfirmActivity.this, "Signed in successfully!", Toast.LENGTH_SHORT).show();
-                    Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
-                    startActivity(back);
+                        HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/signInVisitor.php");
+                        request.addData("id", id);
+                        request.addData("mode",arrivedBy);
+                        request.setMethod("POST");
+                        request.execute();
 
+                        /******************************/
+                        try {
+                            String jsonString = request.getResponse();
+                            Log.d("JsonString", "jsonString: " + jsonString);
+                            JSONObject jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
+                            String message = jsonObj.getString("message");
+                            Toast.makeText(ConfirmActivity.this, message, Toast.LENGTH_SHORT).show();
+                            Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
+                            startActivity(back);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(ConfirmActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         } else {
@@ -84,9 +105,31 @@ public class ConfirmActivity extends AppCompatActivity {
             btnConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ConfirmActivity.this, "Signed out successfully!", Toast.LENGTH_SHORT).show();
-                    Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
-                    startActivity(back);
+                    ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                    if (networkInfo != null && networkInfo.isConnected()) {
+
+                        HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/signOutVisitor.php");
+                        request.addData("id", id);
+                        request.setMethod("POST");
+                        request.execute();
+
+                        /******************************/
+                        try {
+                            String jsonString = request.getResponse();
+                            Log.d("JsonString", "jsonString: " + jsonString);
+                            JSONObject jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
+                            String message = jsonObj.getString("message");
+                            Toast.makeText(ConfirmActivity.this, message, Toast.LENGTH_SHORT).show();
+                            Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
+                            startActivity(back);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(ConfirmActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             });

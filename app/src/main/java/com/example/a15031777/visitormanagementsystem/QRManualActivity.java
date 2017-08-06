@@ -54,7 +54,7 @@ public class QRManualActivity extends AppCompatActivity {
             btnManual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent next = new Intent(QRManualActivity.this, SignOutActivity.class);
+                    Intent next = new Intent(QRManualActivity.this, SignOutManuallyActivity.class);
                     startActivity(next);
                 }
             });

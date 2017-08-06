@@ -5,33 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a15031777.visitormanagementsystem.AdminActivity">
-    <ImageView
+    <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_marginLeft="75dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="26dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/lvThings"
-        android:layout_marginBottom="14dp"
+        android:layout_alignTop="@+id/imageButton"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
         android:layout_toEndOf="@+id/imageButton"
         android:layout_toRightOf="@+id/imageButton"
-        android:text="Welcome Admin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp" />
-
+        android:text="Welcome Admin!" />
     <ListView
         android:id="@+id/lvThings"
         android:layout_width="match_parent"
