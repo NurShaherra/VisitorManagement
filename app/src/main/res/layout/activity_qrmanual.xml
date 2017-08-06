@@ -19,7 +19,7 @@
         android:layout_marginEnd="25dp" />
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton"

@@ -1,6 +1,7 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -24,7 +25,7 @@ public class SignOutManuallyActivity extends AppCompatActivity {
     TextView tv;
     ListView lv;
     ArrayAdapter aa;
-    ArrayList<String> values;
+    ArrayList<Visitor> values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,8 @@ public class SignOutManuallyActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
-        tv.append("Sign Out");
-        values = new ArrayList<String>();
+        tv.setText("Sign Out");
+        values = new ArrayList<Visitor>();
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -54,7 +55,15 @@ public class SignOutManuallyActivity extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(jsonString);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
-                    values.add(jObj.getString("visitor_id")+"\n"+jObj.getString("signed_in"));
+                    String visitorId = jObj.getString("visitor_id");
+                    String name = jObj.getString("full_name");
+                    String email = jObj.getString("email_address");
+                    String mode = jObj.getString("mode_of_transport");
+                    String sign_in = jObj.getString("signed_in");
+                    String mobile = jObj.getString("mobile_number");
+                    String userId = jObj.getString("user_id");
+                    Visitor v = new Visitor(Integer.parseInt(visitorId), name, email, Integer.parseInt(mobile), mode, Integer.parseInt(sign_in), Integer.parseInt(userId));
+                    values.add(v);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,13 +72,17 @@ public class SignOutManuallyActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "No network connection available.", Toast.LENGTH_SHORT).show();
         }
 
-        aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+        aa = new VisitorArrayAdapter(this, R.layout.row, values);
         lv.setAdapter(aa);
         final SharedPreferences.Editor edit = pref.edit();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Visitor v = values.get(position);
+                Intent i = new Intent(SignOutManuallyActivity.this, ConfirmActivity.class);
+                i.putExtra("id", v.getId()+"");
+                i.putExtra("sign", "out");
+                startActivity(i);
 
             }
         });

@@ -31,7 +31,7 @@ public class ConfirmActivity extends AppCompatActivity {
         final String arrivedBy = i.getStringExtra("by");
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ConfirmActivity.this);
         String sign = pref.getString("sign", "");
-        tvTitle = (TextView) findViewById(R.id.textViewName);
+        tvTitle = (TextView) findViewById(R.id.textView);
         tvName = (TextView) findViewById(R.id.textViewFullName);
         tvEmail = (TextView) findViewById(R.id.textViewEmail);
         tvNum = (TextView) findViewById(R.id.textViewNum);

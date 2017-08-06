@@ -39,7 +39,7 @@
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/imageButton"
@@ -52,9 +52,9 @@
                 android:id="@+id/editTextName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textViewName"
-                android:layout_alignStart="@+id/textViewName"
-                android:layout_below="@+id/textViewName"
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView"
+                android:layout_below="@+id/textView"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 
