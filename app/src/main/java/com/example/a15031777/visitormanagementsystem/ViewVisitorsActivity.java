@@ -1,6 +1,7 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -79,10 +80,10 @@ public class ViewVisitorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Visitor v = values.get(position);
-//                Intent i = new Intent(ViewVisitorsActivity.this, ConfirmActivity.class);
-//                i.putExtra("id", v.getId() + "");
-//                i.putExtra("sign", "out");
-//                startActivity(i);
+                Intent i = new Intent(ViewVisitorsActivity.this, ConfirmActivity.class);
+                i.putExtra("id", v.getId() + "");
+                i.putExtra("sign", "display");
+                startActivity(i);
 
             }
         });
