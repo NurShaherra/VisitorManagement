@@ -48,13 +48,13 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
         android:layout_alignBaseline="@+id/buttonSave"
         android:layout_alignBottom="@+id/buttonSave"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+        android:layout_alignLeft="@+id/textViewCreateDate"
+        android:layout_alignStart="@+id/textViewCreateDate"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:text="Delete" />
 
     <EditText
         android:id="@+id/editTextName"
