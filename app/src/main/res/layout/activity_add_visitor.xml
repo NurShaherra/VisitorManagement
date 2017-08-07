@@ -41,7 +41,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewCreateDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/imageButton"
@@ -54,9 +54,9 @@
                 android:id="@+id/editTextName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView"
-                android:layout_alignStart="@+id/textView"
-                android:layout_below="@+id/textView"
+                android:layout_alignLeft="@+id/textViewCreateDate"
+                android:layout_alignStart="@+id/textViewCreateDate"
+                android:layout_below="@+id/textViewCreateDate"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 

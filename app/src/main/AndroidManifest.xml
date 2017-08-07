@@ -32,6 +32,8 @@
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".LicenseActivity" />
         <activity android:name=".ManagerActivity"/>
+        <activity android:name=".VisitorInformation"/>
+        <activity android:name=".GenerateEvacuationReport"/>
         <activity android:name=".ViewEvacuationReport"/>
         <activity android:name=".AddVisitor"></activity>
         <activity android:name=".EditUser"></activity>

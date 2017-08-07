@@ -55,9 +55,10 @@ public class ViewEvacuationReport extends AppCompatActivity {
                     JSONObject jObj = jsonArray.getJSONObject(i);
 
                     Report report = new Report();
+                    report.setReportId(Integer.parseInt(jObj.getString("eReport_id")));
                     report.setManagerName(jObj.getString("manager_on_duty"));
+                    report.setNumPeopleSignedIn(Integer.parseInt(jObj.getString("num_of_people_signed_in")));
                     report.setCreatedDate(jObj.getString("eReport_created_date"));
-                    report.setNumSignedIn(Integer.parseInt(jObj.getString("num_of_people_signed_in")));
 
                     reportList.add(report);
                 }
