@@ -5,20 +5,37 @@ package com.example.a15031777.visitormanagementsystem;
  */
 
 public class Report {
+    private int reportId;
     private String managerName;
+    private int numPeopleSignedIn;
     private String createdDate;
-    private int numSignedIn;
 
-    public Report(){
+    public Report() {
 
     }
 
-    public String getManagerName(){
+    public String getManagerName() {
         return managerName;
     }
 
     public void setManagerName(String managerName) {
         this.managerName = managerName;
+    }
+
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    public int getNumPeopleSignedIn() {
+        return numPeopleSignedIn;
+    }
+
+    public void setNumPeopleSignedIn(int numPeopleSignedIn) {
+        this.numPeopleSignedIn = numPeopleSignedIn;
     }
 
     public String getCreatedDate() {
@@ -27,13 +44,5 @@ public class Report {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public int getNumSignedIn() {
-        return numSignedIn;
-    }
-
-    public void setNumSignedIn(int numSignedIn) {
-        this.numSignedIn = numSignedIn;
     }
 }
