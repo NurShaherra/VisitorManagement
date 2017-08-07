@@ -22,8 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /* DONE BY 15017484 */
-
-public class ViewVisitorsActivity extends AppCompatActivity {
+public class SignInManuallyActivity extends AppCompatActivity {
     TextView tv;
     ListView lv;
     ArrayAdapter aa;
@@ -39,13 +38,13 @@ public class ViewVisitorsActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
-        tv.setText("View Visitors");
+        tv.setText("Sign In");
         values = new ArrayList<Visitor>();
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitorsById.php");
+            HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitorsByIdOut.php");
             request.addData("id", id + "");
             request.setMethod("POST");
             request.execute();
@@ -81,9 +80,9 @@ public class ViewVisitorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Visitor v = values.get(position);
-                Intent i = new Intent(ViewVisitorsActivity.this, ConfirmActivity.class);
+                Intent i = new Intent(SignInManuallyActivity.this, ConfirmActivity.class);
                 i.putExtra("id", v.getId() + "");
-                i.putExtra("sign", "display");
+                i.putExtra("sign", "in");
                 startActivity(i);
 
             }

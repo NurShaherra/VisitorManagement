@@ -112,7 +112,7 @@ public class ConfirmActivity extends AppCompatActivity {
                             String message = jsonObj.getString("message");
                             new SendMail().execute();
                             Toast.makeText(ConfirmActivity.this, message, Toast.LENGTH_SHORT).show();
-                            Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
+                            Intent back = new Intent(ConfirmActivity.this, MainActivity.class);
                             startActivity(back);
 
                         } catch (Exception e) {
@@ -123,7 +123,7 @@ public class ConfirmActivity extends AppCompatActivity {
                     }
                 }
             });
-        } else if (sign.equalsIgnoreCase("out")) {
+        } else if (sign.equalsIgnoreCase("Sign Out")) {
             tvArrived.setText(by);
             tvLicense.setText("-");
             btnConfirm.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +145,7 @@ public class ConfirmActivity extends AppCompatActivity {
                             JSONObject jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
                             String message = jsonObj.getString("message");
                             Toast.makeText(ConfirmActivity.this, message, Toast.LENGTH_SHORT).show();
-                            Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
+                            Intent back = new Intent(ConfirmActivity.this, MainActivity.class);
                             startActivity(back);
 
                         } catch (Exception e) {
@@ -174,6 +174,7 @@ public class ConfirmActivity extends AppCompatActivity {
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                     shareBitmap(bitmap, "qrcode", email);
+                    finish();
 
                 }
             });
