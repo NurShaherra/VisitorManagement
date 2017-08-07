@@ -67,11 +67,12 @@ public class VisitorInformation extends AppCompatActivity {
                 // Populate the arraylist personList
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
-                    al.add(jObj.getString("full_name"));
-                    al.add(jObj.getString("email_address"));
-                    al.add(jObj.getString("mode_of_transport"));
-                    al.add(jObj.getString("signed_in"));
-                    al.add(jObj.getString("mobile_number"));
+                    al.add("Full Name: " + jObj.getString("full_name"));
+                    al.add("Email: " + jObj.getString("email_address"));
+                    al.add("Arrived By: " + jObj.getString("mode_of_transport"));
+                    al.add("Signed-in: " + jObj.getString("signed_in"));
+                    al.add("Mobile Number: " + jObj.getString("mobile_number"));
+                    al.add(jObj.getString(" "));
                 }
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
                 lvVisitor.setAdapter(aa);
