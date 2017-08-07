@@ -7,12 +7,12 @@
 
     <application
         android:allowBackup="true"
+        android:descendantFocusability="afterDescendants"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:descendantFocusability="afterDescendants"
         android:windowSoftInputMode="adjustPan">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -38,10 +38,12 @@
         <activity android:name=".AddVisitor" />
         <activity android:name=".EditUser" />
         <activity android:name=".VisitorInformation" />
-        <activity android:name=".HostActivity"/>
+        <activity android:name=".HostActivity" />
         <activity android:name=".GenerateEvacuationReport" />
-        <activity android:name=".ViewVisitorsActivity"/>
-        <activity android:name=".SignInManuallyActivity"/>
+        <activity android:name=".ViewVisitorsActivity" />
+        <activity android:name=".SignInManuallyActivity" />
+        <activity android:name=".AddUser" />
+        <activity android:name=".EditVisitor"></activity>
     </application>
 
 </manifest>

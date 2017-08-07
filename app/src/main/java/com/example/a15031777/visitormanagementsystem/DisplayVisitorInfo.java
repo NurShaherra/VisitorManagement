@@ -83,11 +83,13 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("admin")){
                                     Visitor visitor = new Visitor();
-                                    visitor.setId(jObj.getInt("user_id"));
+                                    visitor.setId(jObj.getInt("visitor_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                    visitor.setSign_in(jObj.getInt("signed_in"));
                                     visitor.setMobile(jObj.getInt("mobile_number"));
-
+                                    visitor.setUserId(jObj.getInt("user_id"));
                                     al.add(visitor);
                                 }
                             }
@@ -111,10 +113,13 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
                                     Visitor visitor = new Visitor();
-                                    visitor.setId(jObj.getInt("user_id"));
+                                    visitor.setId(jObj.getInt("visitor_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
-//                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                    visitor.setSign_in(jObj.getInt("signed_in"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    visitor.setUserId(jObj.getInt("user_id"));
                                     al.add(visitor);
                                 }
                             }
@@ -137,14 +142,15 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("manager")){
-//                                    User user = new User();
-//                                    user.setId(jObj.getInt("user_id"));
-//                                    user.setFullname(jObj.getString("full_name"));
-//                                    user.setEmail(jObj.getString("email_address"));
-//                                    user.setUsername(jObj.getString("user_name"));
-//                                    user.setAddress(jObj.getString("unit_address"));
-//                                    user.setBlock(jObj.getString("block_number"));
-//                                    al.add(user);
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("visitor_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                    visitor.setSign_in(jObj.getInt("signed_in"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    visitor.setUserId(jObj.getInt("user_id"));
+                                    al.add(visitor);
                                 }
                             }
 
@@ -166,14 +172,15 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("host")){
-//                                    User user = new User();
-//                                    user.setId(jObj.getInt("user_id"));
-//                                    user.setFullname(jObj.getString("full_name"));
-//                                    user.setEmail(jObj.getString("email_address"));
-//                                    user.setUsername(jObj.getString("user_name"));
-//                                    user.setAddress(jObj.getString("unit_address"));
-//                                    user.setBlock(jObj.getString("block_number"));
-//                                    al.add(user);
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("visitor_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                    visitor.setSign_in(jObj.getInt("signed_in"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    visitor.setUserId(jObj.getInt("user_id"));
+                                    al.add(visitor);
                                 }
                             }
 
@@ -196,14 +203,15 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-//                                User user = new User();
-//                                user.setId(jObj.getInt("user_id"));
-//                                user.setFullname(jObj.getString("full_name"));
-//                                user.setEmail(jObj.getString("email_address"));
-//                                user.setUsername(jObj.getString("user_name"));
-//                                user.setAddress(jObj.getString("unit_address"));
-//                                user.setBlock(jObj.getString("block_number"));
-//                                al.add(user);
+                                Visitor visitor = new Visitor();
+                                visitor.setId(jObj.getInt("visitor_id"));
+                                visitor.setFullname(jObj.getString("full_name"));
+                                visitor.setEmail(jObj.getString("email_address"));
+                                visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                visitor.setSign_in(jObj.getInt("signed_in"));
+                                visitor.setMobile(jObj.getInt("mobile_number"));
+                                visitor.setUserId(jObj.getInt("user_id"));
+                                al.add(visitor);
                             }
 
                         } catch (Exception e) {
