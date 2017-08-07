@@ -40,7 +40,7 @@ public class visitorAdapter extends ArrayAdapter<Visitor> {
         View rowView = inflater.inflate(R.layout.rowvisitor, parent, false);
 
         // Get the TextView object
-        fullName = (TextView) rowView.findViewById(R.id.textViewFullName);
+        fullName = (TextView) rowView.findViewById(R.id.textViewName);
         username = (TextView) rowView.findViewById(R.id.textViewUser);
 
         // The parameter "position" is the index of the

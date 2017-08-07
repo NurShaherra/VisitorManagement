@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -59,19 +60,19 @@ public class EditUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php?");
+                HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php");
                 request.setMethod("POST");
 
                 request.addData("id", userId);
-                request.addData("full_name", etName.getText().toString());
                 request.addData("user_name", etUsername.getText().toString());
                 request.addData("email_address", etEmail.getText().toString());
+                request.addData("full_name", etName.getText().toString());
                 request.addData("unit_address", etUnit.getText().toString());
                 request.addData("block_number", etNumber.getText().toString());
                 request.execute();
 
                 try{
-
+                    Toast.makeText(EditUser.this, "Saved successfully!", Toast.LENGTH_SHORT).show();
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();
