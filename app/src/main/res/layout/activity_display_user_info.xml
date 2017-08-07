@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textViewCreateDate"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Manage Users"
@@ -37,34 +37,18 @@
         android:id="@+id/spinnerUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/imageButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="19dp" />
+        android:layout_alignParentStart="true" />
 
     <ListView
         android:id="@+id/lvUser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/spinnerUser" />
+        android:layout_below="@+id/spinnerUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
 
-    <!--<Spinner-->
-        <!--android:id="@+id/spinnerUser"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/lvUser"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true" />-->
-
-    <!--<ListView-->
-        <!--android:id="@+id/lvUser"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/imageButtonEReport"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginTop="42dp" />-->
 
 </RelativeLayout>

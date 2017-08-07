@@ -37,8 +37,6 @@ public class EditUser extends AppCompatActivity {
             Log.d("Test", jsonString);
 
             JSONObject jsonObj = new JSONObject(jsonString);
-//            // TODO 01: Set values in the EditText fields
-//            //use getcontactdetails.php - needs user id
             etName = (EditText) findViewById(R.id.editTextName);
             etEmail = (EditText) findViewById(R.id.editTextEmail);
             etUsername = (EditText) findViewById(R.id.editTextUsername);
