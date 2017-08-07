@@ -25,8 +25,8 @@ public class EditUser extends AppCompatActivity {
         Intent intent = getIntent();
         btnSave = (Button) findViewById(R.id.buttonSave);
         userId = intent.getStringExtra("user");
-        //HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/getUserById.php?userId=" + userId);
-        HttpRequest request= new HttpRequest("http://localhost/FYP/getUserById.php?userId=" + userId);
+        HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/getUserById.php?userId=" + userId);
+//        HttpRequest request= new HttpRequest("http://localhost/FYP/getUserById.php?userId=" + userId);
         request.setMethod("GET");
         request.execute();
 
@@ -59,7 +59,7 @@ public class EditUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                HttpRequest request= new HttpRequest("http://10.0.2.2/FYP/updateUser.php");
+                HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php?");
                 request.setMethod("POST");
 
                 request.addData("id", userId);

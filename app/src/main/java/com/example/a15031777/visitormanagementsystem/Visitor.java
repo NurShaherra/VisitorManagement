@@ -13,6 +13,9 @@ public class Visitor {
     private int sign_in;
     private int userId;
 
+    public Visitor(){
+
+    }
     public Visitor(int id, String fullname, String email, int mobile, String transportmode, int sign_in, int userId) {
         this.id = id;
         this.fullname = fullname;

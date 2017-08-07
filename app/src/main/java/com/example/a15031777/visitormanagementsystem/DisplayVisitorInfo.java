@@ -1,19 +1,27 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class DisplayVisitorInfo extends AppCompatActivity {
 
     Intent intent;
-    ArrayList<User> al;
-    ArrayAdapter<User> aa;
+    ArrayList<Visitor> al;
+    ArrayAdapter<Visitor> aa;
     ListView listView;
     Spinner spn;
 
@@ -23,6 +31,208 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         setContentView(R.layout.activity_display_visitor_info);
 
 
+        listView = (ListView) findViewById(R.id.lvVisitor);
+        spn = (Spinner) findViewById(R.id.spinnerVisitor);
+        intent = getIntent();
+        al = new ArrayList<Visitor>();
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.roles, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spn.setAdapter(adapter);
+
+        // Check if there is network access
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            //helper class - parse in the http url
+            final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitors.php");
+            //specify the method
+            request.setMethod("GET");
+            //call the webservice
+            request.execute();
+
+            aa = new visitorAdapter(this, R.layout.rowvisitor, al);
+            listView.setAdapter(aa);
+
+            spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItem = parent.getItemAtPosition(position).toString();
+                    if (selectedItem.equalsIgnoreCase("Administrator")) {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                int role = jObj.getInt("user_id");
+                                if (role == 3){
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("visitor_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                    visitor.setSign_in(jObj.getInt("signed_in"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    al.add(visitor);
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Security Guard")){
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("security guard")){
+//                                    User user = new User();
+//                                    user.setId(jObj.getInt("user_id"));
+//                                    user.setFullname(jObj.getString("full_name"));
+//                                    user.setEmail(jObj.getString("email_address"));
+//                                    user.setUsername(jObj.getString("user_name"));
+//                                    user.setAddress(jObj.getString("unit_address"));
+//                                    user.setBlock(jObj.getString("block_number"));
+//                                    al.add(user);
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Manager")){
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("manager")){
+//                                    User user = new User();
+//                                    user.setId(jObj.getInt("user_id"));
+//                                    user.setFullname(jObj.getString("full_name"));
+//                                    user.setEmail(jObj.getString("email_address"));
+//                                    user.setUsername(jObj.getString("user_name"));
+//                                    user.setAddress(jObj.getString("unit_address"));
+//                                    user.setBlock(jObj.getString("block_number"));
+//                                    al.add(user);
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else if (selectedItem.equalsIgnoreCase("Host")) {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("host")){
+//                                    User user = new User();
+//                                    user.setId(jObj.getInt("user_id"));
+//                                    user.setFullname(jObj.getString("full_name"));
+//                                    user.setEmail(jObj.getString("email_address"));
+//                                    user.setUsername(jObj.getString("user_name"));
+//                                    user.setAddress(jObj.getString("unit_address"));
+//                                    user.setBlock(jObj.getString("block_number"));
+//                                    al.add(user);
+                                }
+                            }
+
+
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        al.clear();
+                        try {
+                            //get the response back
+                            String jsonString = request.getResponse();
+                            System.out.println(">>" + jsonString);
+
+                            //do something with json string
+                            JSONArray jsonArray = new JSONArray(jsonString);
+
+                            // Populate the arraylist personList
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jObj = jsonArray.getJSONObject(i);
+//                                User user = new User();
+//                                user.setId(jObj.getInt("user_id"));
+//                                user.setFullname(jObj.getString("full_name"));
+//                                user.setEmail(jObj.getString("email_address"));
+//                                user.setUsername(jObj.getString("user_name"));
+//                                user.setAddress(jObj.getString("unit_address"));
+//                                user.setBlock(jObj.getString("block_number"));
+//                                al.add(user);
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    aa.notifyDataSetChanged();
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Visitor person = (Visitor)parent.getItemAtPosition(position);
+
+//                    intent = new Intent(getApplicationContext(), EditVisitor.class);
+                    intent.putExtra("visitor", Integer.toString(person.getId()));
+                    startActivity(intent);
+                }
+            });
+
+
+
+
+
+        }
     }
-}
+    }
+
