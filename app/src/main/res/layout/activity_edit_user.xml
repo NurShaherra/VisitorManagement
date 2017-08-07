@@ -22,15 +22,15 @@
         android:id="@+id/textViewCreateDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_marginBottom="18dp"
         android:text="Edit User"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp" />
 
     <TextView
         android:id="@+id/textView10"

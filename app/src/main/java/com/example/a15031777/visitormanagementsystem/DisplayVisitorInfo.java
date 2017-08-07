@@ -80,9 +80,9 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-                                int role = jObj.getInt("user_id");
-                                if (role == id){
-                                    al.add(jObj.getString("full_name"));
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("admin")){
+                                    al.add(jObj.getString("user_role"));
                                 }
                             }
 
@@ -104,7 +104,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
-                                    al.add(jObj.getString("full_name"));
+                                    al.add(jObj.getString("user_role"));
                                 }
                             }
 
