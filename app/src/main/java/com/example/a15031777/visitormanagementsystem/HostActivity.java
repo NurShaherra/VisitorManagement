@@ -47,11 +47,11 @@ public class HostActivity extends AppCompatActivity {
                     Intent i = new Intent(HostActivity.this, AddVisitor.class);
                     startActivity(i);
                 } else if (position == 2) {
-                    Intent i = new Intent(HostActivity.this, AddVisitor.class);
+                    Intent i = new Intent(HostActivity.this, SignInManuallyActivity.class);
                     edit.putString("sign", "Sign In").commit();
                     startActivity(i);
                 } else {
-                    Intent i = new Intent(HostActivity.this, QRManualActivity.class);
+                    Intent i = new Intent(HostActivity.this, SignOutManuallyActivity.class);
                     edit.putString("sign", "Sign Out").commit();
                     startActivity(i);
                 }

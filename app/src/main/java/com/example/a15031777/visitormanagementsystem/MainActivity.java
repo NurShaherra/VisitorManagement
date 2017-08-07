@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int userLoggedIn = pref.getInt("isLoggedIn", -1);
-        String role = pref.getString("user_role", "");
-
+        String role = pref.getString("role", "");
+        Log.d("test",role);
         if (userLoggedIn == -1) {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,9 +65,8 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("UserRole", "userRole: " + id);
                                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                                 SharedPreferences.Editor edit = pref.edit();
-                                edit.putInt("isLoggedIn", Integer.parseInt(id));
-                                edit.putString("role", role);
-                                edit.commit();
+                                edit.putInt("isLoggedIn", Integer.parseInt(id)).commit();
+                                edit.putString("role", role).commit();
 //                                Intent intent = new Intent(MainActivity.this, MainActivity.class);
 //                                startActivity(intent);
                                 Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
@@ -113,4 +112,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    
 }
