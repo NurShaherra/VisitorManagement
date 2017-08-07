@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/* DONE BY 15017484 */
 public class SecurityGuardActivity extends AppCompatActivity {
     TextView tv;
     ListView lv;
@@ -27,7 +28,7 @@ public class SecurityGuardActivity extends AppCompatActivity {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
-        String role = pref.getString("role","");
+        String role = pref.getString("role", "");
         tv.append(" " + role + "!");
 
 
@@ -39,22 +40,23 @@ public class SecurityGuardActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-//                    Intent i = new Intent(SecurityGuardActivity.this, HostActivity.class);
-//                    startActivity(i);
+                    Intent i = new Intent(SecurityGuardActivity.this, AddVisitor.class);
+                    startActivity(i);
                 } else if (position == 1) {
-//                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-//                    edit.putString("sign","Sign In").commit();
-//                    startActivity(i);
+                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
+                    edit.putString("sign", "Sign In").commit();
+                    startActivity(i);
                 } else if (position == 2) {
-//                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-//                    edit.putString("sign","Sign Out").commit();
-//                    startActivity(i);
+                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
+                    edit.putString("sign", "Sign Out").commit();
+                    startActivity(i);
                 }
 
 
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

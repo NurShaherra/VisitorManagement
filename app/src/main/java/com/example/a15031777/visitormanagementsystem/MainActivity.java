@@ -17,6 +17,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+/* DONE BY 15017484 */
 public class MainActivity extends AppCompatActivity {
     EditText etUName, etPw;
     Button btnLogin;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int userLoggedIn = pref.getInt("isLoggedIn", -1);
-
+        String role = pref.getString("user_role", "");
 
         if (userLoggedIn == -1) {
             btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                                 if (role.equalsIgnoreCase("Security Guard")) {
                                     Intent i = new Intent(MainActivity.this, SecurityGuardActivity.class);
                                     startActivity(i);
-                                } else if(role.equalsIgnoreCase("admin")){
-                                    Intent i = new Intent(MainActivity.this,AdminActivity.class);
+                                } else if (role.equalsIgnoreCase("admin")) {
+                                    Intent i = new Intent(MainActivity.this, AdminActivity.class);
                                     startActivity(i);
                                 }
 
@@ -90,7 +91,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-
+            if (role.equalsIgnoreCase("Security Guard")) {
+                Intent i = new Intent(MainActivity.this, SecurityGuardActivity.class);
+                startActivity(i);
+            } else if (role.equalsIgnoreCase("admin")) {
+                Intent i = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(i);
+            }
         }
     }
 }

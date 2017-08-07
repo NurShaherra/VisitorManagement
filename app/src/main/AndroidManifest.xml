@@ -25,8 +25,13 @@
         <activity android:name=".DisplayVisitorInfo" />
         <activity android:name=".ViewSummary" />
         <activity android:name=".ProfilePage" />
-        <activity android:name=".AddVisitor" />
-        <activity android:name=".EditUser"></activity>
+        <activity android:name=".QRManualActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".SignOutActivity" />
+        <activity android:name=".SignOutManuallyActivity"/>
+        <activity android:name=".ConfirmActivity" />
+        <activity android:name=".LicenseActivity" />
+        <activity android:name=".AddVisitor"></activity>
     </application>
 
 </manifest>
