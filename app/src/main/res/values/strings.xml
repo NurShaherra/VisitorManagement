@@ -26,6 +26,7 @@
     <string name="mobileNum">Mobile Number:</string>
     <string name="id">Visitor Id:</string>
     <string name="mobile">Mobile Number:</string>
+    <string name="addAll">Add All</string>
     <string-array name="roles">
         <item>All</item>
         <item>Administrator</item>
