@@ -25,7 +25,8 @@
         <activity android:name=".DisplayVisitorInfo" />
         <activity android:name=".ViewSummary" />
         <activity android:name=".ProfilePage" />
-        <activity android:name=".AddVisitor"></activity>
+        <activity android:name=".AddVisitor" />
+        <activity android:name=".EditUser"></activity>
     </application>
 
 </manifest>

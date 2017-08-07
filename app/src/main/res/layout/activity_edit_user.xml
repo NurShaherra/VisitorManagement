@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a15031777.visitormanagementsystem.AddVisitor">
+    tools:context="com.example.a15031777.visitormanagementsystem.EditUser">
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,7 +28,7 @@
         android:layout_marginStart="27dp"
         android:layout_toEndOf="@+id/imageView"
         android:layout_toRightOf="@+id/imageView"
-        android:text="Add Visitor"
+        android:text="Edit Visitor"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp" />
 
@@ -136,17 +136,6 @@
         android:layout_below="@+id/editTextSigned"
         android:ems="10"
         android:inputType="number" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="User Id:"
-        android:layout_below="@+id/editTextNum"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13" />
-
 
 
 

@@ -29,6 +29,8 @@ public class SecurityGuardActivity extends AppCompatActivity {
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role","");
         tv.append(" " + role + "!");
+
+
         String[] values = new String[]{"Register Visitor", "Sign In", "Sign Out"};
         aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
         lv.setAdapter(aa);
