@@ -77,11 +77,13 @@ public class MainActivity extends AppCompatActivity {
                                 } else if (role.equalsIgnoreCase("admin")) {
                                     Intent i = new Intent(MainActivity.this, AdminActivity.class);
                                     startActivity(i);
-                                } else if(role.equalsIgnoreCase("manager")) {
+                                } else if (role.equalsIgnoreCase("manager")) {
                                     Toast.makeText(MainActivity.this, "Test Manager", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(MainActivity.this, ManagerActivity.class);
                                     startActivity(i);
-
+                                } else if (role.equalsIgnoreCase("Host")) {
+                                    Intent i = new Intent(MainActivity.this, HostActivity.class);
+                                    startActivity(i);
                                 }
 
                             } else {
@@ -102,8 +104,11 @@ public class MainActivity extends AppCompatActivity {
             } else if (role.equalsIgnoreCase("admin")) {
                 Intent i = new Intent(MainActivity.this, AdminActivity.class);
                 startActivity(i);
-            }else if(role.equalsIgnoreCase("manager")){
+            } else if (role.equalsIgnoreCase("manager")) {
                 Intent i = new Intent(MainActivity.this, ManagerActivity.class);
+                startActivity(i);
+            } else if (role.equalsIgnoreCase("Host")) {
+                Intent i = new Intent(MainActivity.this, HostActivity.class);
                 startActivity(i);
             }
         }

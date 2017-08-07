@@ -1,7 +1,6 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -22,7 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /* DONE BY 15017484 */
-public class SignOutManuallyActivity extends AppCompatActivity {
+public class ViewVisitorsActivity extends AppCompatActivity {
     TextView tv;
     ListView lv;
     ArrayAdapter aa;
@@ -38,13 +37,13 @@ public class SignOutManuallyActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
-        tv.setText("Sign Out");
+        tv.setText("View Visitors");
         values = new ArrayList<Visitor>();
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitorsByIdIn.php");
+            HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitorsById.php");
             request.addData("id", id + "");
             request.setMethod("POST");
             request.execute();
@@ -80,10 +79,10 @@ public class SignOutManuallyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Visitor v = values.get(position);
-                Intent i = new Intent(SignOutManuallyActivity.this, ConfirmActivity.class);
-                i.putExtra("id", v.getId() + "");
-                i.putExtra("sign", "out");
-                startActivity(i);
+//                Intent i = new Intent(ViewVisitorsActivity.this, ConfirmActivity.class);
+//                i.putExtra("id", v.getId() + "");
+//                i.putExtra("sign", "out");
+//                startActivity(i);
 
             }
         });
