@@ -114,7 +114,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                     visitor.setId(jObj.getInt("user_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
-                                    visitor.setMobile(jObj.getInt("mobile_number"));
+//                                    visitor.setMobile(jObj.getInt("mobile_number"));
                                     al.add(visitor);
                                 }
                             }

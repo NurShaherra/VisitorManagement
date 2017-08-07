@@ -81,11 +81,11 @@
         android:id="@+id/editTextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextName"
-        android:layout_alignStart="@+id/editTextName"
-        android:layout_below="@+id/editTextName"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_alignTop="@+id/textView11"
+        android:layout_alignLeft="@+id/editTextName"
+        android:layout_alignStart="@+id/editTextName" />
 
     <TextView
         android:id="@+id/textView12"
@@ -107,8 +107,8 @@
         android:inputType="textMultiLine"
         android:layout_alignBaseline="@+id/textView12"
         android:layout_alignBottom="@+id/textView12"
-        android:layout_alignLeft="@+id/editTextEmail"
-        android:layout_alignStart="@+id/editTextEmail" />
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/editTextUnit"

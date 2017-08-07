@@ -19,7 +19,7 @@ public class VisitorAdapter extends ArrayAdapter<Visitor> {
     private Context context;
     private TextView fullName;
     private TextView email;
-    private TextView mobile;
+//    private TextView mobile;
 
 
     public VisitorAdapter(Context context, int resource, ArrayList<Visitor> objects){
@@ -44,7 +44,7 @@ public class VisitorAdapter extends ArrayAdapter<Visitor> {
         // Get the TextView object
         fullName = (TextView) rowView.findViewById(R.id.textViewFullName);
         email = (TextView) rowView.findViewById(R.id.textViewEmail);
-        mobile = (TextView) rowView.findViewById(R.id.textViewMobile);
+//        mobile = (TextView) rowView.findViewById(R.id.textViewMobile);
 
 
         // The parameter "position" is the index of the
@@ -55,7 +55,7 @@ public class VisitorAdapter extends ArrayAdapter<Visitor> {
 
         fullName.setText(currentFood.getFullname());
         email.setText(currentFood.getEmail());
-        mobile.setText(currentFood.getMobile());
+//        mobile.setText(currentFood.getMobile());
 
 
         // Return the nicely done up View to the ListView
