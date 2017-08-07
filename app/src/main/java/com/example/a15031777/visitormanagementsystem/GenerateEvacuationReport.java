@@ -32,7 +32,7 @@ public class GenerateEvacuationReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visitor_information);
 
-        ibGReport = (ImageButton) findViewById(R.id.ibsignedInUserInfo);
+        ibGReport = (ImageButton) findViewById(R.id.ib);
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
         lvGReport = (ListView) findViewById(R.id.lvGReport);
         intent = getIntent();

@@ -35,7 +35,7 @@ public class ReportAdapter extends ArrayAdapter<Report> {
         View rowView = inflater.inflate(R.layout.row, parent, false);
 
         // Get the ImageView object
-        ibEReport = (ImageButton) rowView.findViewById(R.id.ibsignedInUserInfo);
+        ibEReport = (ImageButton) rowView.findViewById(R.id.ib);
 
         // Return the nicely done up View to the ListView
 
