@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+/* DONE BY 15017484 */
 public class QRManualActivity extends AppCompatActivity {
     TextView tv;
     Button btnQr, btnManual;

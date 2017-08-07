@@ -17,6 +17,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+/* DONE BY 15017484 */
 public class ConfirmActivity extends AppCompatActivity {
     TextView tvTitle, tvName, tvEmail, tvNum, tvArrived, tvLicense;
     Button btnConfirm;
@@ -77,7 +78,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
                         HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/signInVisitor.php");
                         request.addData("id", id);
-                        request.addData("mode",arrivedBy);
+                        request.addData("mode", arrivedBy);
                         request.setMethod("POST");
                         request.execute();
 

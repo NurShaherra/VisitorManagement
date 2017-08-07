@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/* DONE BY 15017484 */
 public class SignOutManuallyActivity extends AppCompatActivity {
     TextView tv;
     ListView lv;
@@ -80,7 +81,7 @@ public class SignOutManuallyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Visitor v = values.get(position);
                 Intent i = new Intent(SignOutManuallyActivity.this, ConfirmActivity.class);
-                i.putExtra("id", v.getId()+"");
+                i.putExtra("id", v.getId() + "");
                 i.putExtra("sign", "out");
                 startActivity(i);
 

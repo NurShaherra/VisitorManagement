@@ -3,7 +3,7 @@ package com.example.a15031777.visitormanagementsystem;
 /**
  * Created by HP on 7/8/2017.
  */
-
+/* DONE BY 15017484 */
 public class Visitor {
     private int id;
     private String fullname;

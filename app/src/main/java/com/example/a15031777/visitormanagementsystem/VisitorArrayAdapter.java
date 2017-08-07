@@ -5,16 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/* DONE BY 15017484 */
 public class VisitorArrayAdapter extends ArrayAdapter<Visitor> {
     Context context;
     ArrayList<Visitor> notes;
     int resource;
-    ImageView iv1, iv2, iv3, iv4, iv5;
     TextView tv;
     TextView tvId;
 

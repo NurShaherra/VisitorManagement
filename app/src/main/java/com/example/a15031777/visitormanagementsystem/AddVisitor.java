@@ -28,8 +28,9 @@ import org.json.JSONTokener;
 import java.io.File;
 import java.io.FileOutputStream;
 
+/* DONE BY 15017484 */
 public class AddVisitor extends AppCompatActivity {
-    EditText etName, etEmail, etIC, etMobile;
+    EditText etName, etEmail, etMobile;
     Button btnSave;
 
     @Override

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/* DONE BY 15017484 */
 public class LicenseActivity extends AppCompatActivity {
     EditText etLicense;
     Button btnNext;
@@ -27,7 +28,7 @@ public class LicenseActivity extends AppCompatActivity {
                 i.putExtra("by", "Car");
                 i.putExtra("license", plateNum);
                 i.putExtra("nric", ic);
-                i.putExtra("sign","in");
+                i.putExtra("sign", "in");
                 startActivity(i);
             }
         });
