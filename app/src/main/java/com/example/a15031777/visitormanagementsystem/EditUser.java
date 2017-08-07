@@ -1,12 +1,17 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -36,8 +41,6 @@ public class EditUser extends AppCompatActivity {
             Log.d("Test", jsonString);
 
             JSONObject jsonObj = new JSONObject(jsonString);
-//            // TODO 01: Set values in the EditText fields
-//            //use getcontactdetails.php - needs user id
             etName = (EditText) findViewById(R.id.editTextName);
             etEmail = (EditText) findViewById(R.id.editTextEmail);
             etUsername = (EditText) findViewById(R.id.editTextUsername);
@@ -59,24 +62,48 @@ public class EditUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php?");
+                HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php");
                 request.setMethod("POST");
 
                 request.addData("id", userId);
-                request.addData("full_name", etName.getText().toString());
                 request.addData("user_name", etUsername.getText().toString());
                 request.addData("email_address", etEmail.getText().toString());
+                request.addData("full_name", etName.getText().toString());
                 request.addData("unit_address", etUnit.getText().toString());
                 request.addData("block_number", etNumber.getText().toString());
                 request.execute();
 
                 try{
-
+                    Toast.makeText(EditUser.this, "Saved successfully!", Toast.LENGTH_SHORT).show();
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_host, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+        if (id == R.id.menu_logout) {
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(EditUser.this);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putInt("isLoggedIn", -1).commit();
+            Intent i = new Intent(EditUser.this, MainActivity.class);
+            startActivity(i);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

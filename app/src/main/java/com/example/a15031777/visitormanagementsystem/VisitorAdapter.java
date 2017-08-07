@@ -10,26 +10,28 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by 15031777 on 7/8/2017.
+ * Created by 15031777 on 8/8/2017.
  */
 
-public class visitorAdapter extends ArrayAdapter<Visitor> {
+public class VisitorAdapter extends ArrayAdapter<Visitor> {
 
-    private ArrayList<Visitor> visitors;
+    private ArrayList<Visitor> visitor;
     private Context context;
     private TextView fullName;
-    private TextView username;
+    private TextView email;
+    private TextView mobile;
 
-    public visitorAdapter(Context context, int resource, ArrayList<Visitor> objects) {
+
+    public VisitorAdapter(Context context, int resource, ArrayList<Visitor> objects){
         super(context, resource, objects);
         // Store the food that is passed to this adapter
-        visitors = objects;
+        visitor = objects;
         // Store Context object as we would need to use it later
         this.context = context;
     }
 
     // getView() is the method ListView will call to get the
-//  View object every time ListView needs a row
+    //  View object every time ListView needs a row
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // The usual way to get the LayoutInflater object to
@@ -41,19 +43,24 @@ public class visitorAdapter extends ArrayAdapter<Visitor> {
 
         // Get the TextView object
         fullName = (TextView) rowView.findViewById(R.id.textViewFullName);
-        username = (TextView) rowView.findViewById(R.id.textViewUser);
+        email = (TextView) rowView.findViewById(R.id.textViewEmail);
+        mobile = (TextView) rowView.findViewById(R.id.textViewMobile);
+
 
         // The parameter "position" is the index of the
         //  row ListView is requesting.
         //  We get back the food at the same index.
-        Visitor currentFood = visitors.get(position);
+        Visitor currentFood = visitor.get(position);
         // Set the TextView to show the food
 
         fullName.setText(currentFood.getFullname());
-        username.setText(currentFood.getUserId());
+        email.setText(currentFood.getEmail());
+        mobile.setText(currentFood.getMobile());
+
 
         // Return the nicely done up View to the ListView
         return rowView;
     }
-
 }
+
+

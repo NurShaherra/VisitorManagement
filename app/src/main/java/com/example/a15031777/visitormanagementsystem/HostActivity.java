@@ -11,53 +11,54 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-
-public class AdminActivity extends AppCompatActivity {
-    ListView lvThings;
-
-    ArrayList<String> al;
-    ArrayAdapter<String> aa;
+/* DONE BY 15017484 */
+public class HostActivity extends AppCompatActivity {
+    TextView tv;
+    ListView lv;
+    ArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_security_guard);
+        tv = (TextView) findViewById(R.id.textViewWelcome);
+        lv = (ListView) findViewById(R.id.lv);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
-
-        lvThings = (ListView) findViewById(R.id.lvThings);
-        Intent intent = getIntent();
-        al = new ArrayList<String>();
-
-        String[] values = new String[] { "Manage Users",
-                "Manage Visitors", "View Summary"};
-        aa =  new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
-        lvThings.setAdapter(aa);
+        tv.append(" " + role + "!");
 
 
-        lvThings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        String[] values = new String[]{"View Visitors", "Register Visitors", "Sign In Visitors", "Sign Out Visitors"};
+        aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+        lv.setAdapter(aa);
+        final SharedPreferences.Editor edit = pref.edit();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0) {
-                    Intent i = new Intent(AdminActivity.this, DisplayUserInfo.class);
+                if (position == 0) {
+                    Intent i = new Intent(HostActivity.this,ViewVisitorsActivity.class);
                     startActivity(i);
 
-                } else if(position == 1){
-                    Intent i = new Intent(AdminActivity.this, DisplayVisitorInfo.class);
+                } else if (position == 1) {
+                    Intent i = new Intent(HostActivity.this, AddVisitor.class);
                     startActivity(i);
-                } else if(position == 2){
-                    Intent i = new Intent(AdminActivity.this, ViewSummary.class);
+                } else if (position == 2) {
+                    Intent i = new Intent(HostActivity.this, AddVisitor.class);
+                    edit.putString("sign", "Sign In").commit();
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(HostActivity.this, QRManualActivity.class);
+                    edit.putString("sign", "Sign Out").commit();
                     startActivity(i);
                 }
 
 
             }
         });
-
     }
 
     @Override
@@ -72,10 +73,10 @@ public class AdminActivity extends AppCompatActivity {
         // Handle action bar item clicks here.
         int id = item.getItemId();
         if (id == R.id.menu_logout) {
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(AdminActivity.this);
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(HostActivity.this);
             SharedPreferences.Editor edit = pref.edit();
             edit.putInt("isLoggedIn", -1).commit();
-            Intent i = new Intent(AdminActivity.this, MainActivity.class);
+            Intent i = new Intent(HostActivity.this, MainActivity.class);
             startActivity(i);
             return true;
         }

@@ -27,7 +27,9 @@
         android:layout_marginTop="19dp"
         android:layout_toEndOf="@+id/imageButton"
         android:layout_toRightOf="@+id/imageButton"
-        android:text="Welcome Admin!" />
+        android:text="Welcome Admin!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
     <ListView
         android:id="@+id/lvThings"
         android:layout_width="match_parent"

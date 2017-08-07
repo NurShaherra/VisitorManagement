@@ -4,24 +4,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewFullName"
+        android:id="@+id/textViewId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:id="@+id/textViewMobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 </LinearLayout>

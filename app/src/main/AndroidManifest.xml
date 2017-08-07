@@ -11,7 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:descendantFocusability="afterDescendants"
+        android:windowSoftInputMode="adjustPan">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,15 +30,17 @@
         <activity android:name=".QRManualActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignOutActivity" />
-        <activity android:name=".SignOutManuallyActivity"/>
+        <activity android:name=".SignOutManuallyActivity" />
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".LicenseActivity" />
-        <activity android:name=".ManagerActivity"/>
-        <activity android:name=".VisitorInformation"/>
-        <activity android:name=".GenerateEvacuationReport"/>
-        <activity android:name=".ViewEvacuationReport"/>
-        <activity android:name=".AddVisitor"></activity>
-        <activity android:name=".EditUser"></activity>
+        <activity android:name=".ManagerActivity" />
+        <activity android:name=".ViewEvacuationReport" />
+        <activity android:name=".AddVisitor" />
+        <activity android:name=".EditUser" />
+        <activity android:name=".VisitorInformation" />
+        <activity android:name=".HostActivity"/>
+        <activity android:name=".GenerateEvacuationReport" />
+        <activity android:name=".ViewVisitorsActivity"/>
     </application>
 
 </manifest>

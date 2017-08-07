@@ -2,10 +2,14 @@ package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,6 +34,9 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_visitor_info);
 
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        int id = pref.getInt("isLoggedIn", -1);
+        String role = pref.getString("role", "");
 
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);
@@ -53,7 +60,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
             //call the webservice
             request.execute();
 
-            aa = new visitorAdapter(this, R.layout.rowvisitor, al);
+            aa = new VisitorAdapter(this, R.layout.rowvisitor, al);
             listView.setAdapter(aa);
 
             spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,15 +80,14 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-                                int role = jObj.getInt("user_id");
-                                if (role == 3){
+                                String role = jObj.getString("user_role");
+                                if (role.equalsIgnoreCase("admin")){
                                     Visitor visitor = new Visitor();
-                                    visitor.setId(jObj.getInt("visitor_id"));
+                                    visitor.setId(jObj.getInt("user_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
-                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                    visitor.setSign_in(jObj.getInt("signed_in"));
                                     visitor.setMobile(jObj.getInt("mobile_number"));
+
                                     al.add(visitor);
                                 }
                             }
@@ -104,14 +110,12 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
-//                                    User user = new User();
-//                                    user.setId(jObj.getInt("user_id"));
-//                                    user.setFullname(jObj.getString("full_name"));
-//                                    user.setEmail(jObj.getString("email_address"));
-//                                    user.setUsername(jObj.getString("user_name"));
-//                                    user.setAddress(jObj.getString("unit_address"));
-//                                    user.setBlock(jObj.getString("block_number"));
-//                                    al.add(user);
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("user_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    al.add(visitor);
                                 }
                             }
 
@@ -233,6 +237,28 @@ public class DisplayVisitorInfo extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_host, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+        if (id == R.id.menu_logout) {
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(DisplayVisitorInfo.this);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putInt("isLoggedIn", -1).commit();
+            Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
+            startActivity(i);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     }
 
