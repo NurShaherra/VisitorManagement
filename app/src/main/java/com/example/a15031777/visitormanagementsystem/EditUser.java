@@ -80,6 +80,8 @@ public class EditUser extends AppCompatActivity {
                     request.execute();
 
                     try {
+                        String jsonString = request.getResponse();
+                        Log.d("JsonString", "jsonString: " + jsonString);
                         Toast.makeText(EditUser.this, "Saved successfully!", Toast.LENGTH_SHORT).show();
                         finish();
                     } catch (Exception e) {
