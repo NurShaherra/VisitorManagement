@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class DisplayVisitorInfo extends AppCompatActivity {
 
     Intent intent;
-    ArrayList<String> al;
-    ArrayAdapter<String> aa;
+    ArrayList<Visitor> al;
+    ArrayAdapter<Visitor> aa;
     ListView listView;
     Spinner spn;
 
@@ -41,7 +41,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);
         intent = getIntent();
-        al = new ArrayList<String>();
+        al = new ArrayList<Visitor>();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.roles, android.R.layout.simple_spinner_item);
@@ -60,7 +60,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
             //call the webservice
             request.execute();
 
-            aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
+            aa = new VisitorAdapter(this, R.layout.rowvisitor, al);
             listView.setAdapter(aa);
 
             spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -82,7 +82,13 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("admin")){
-                                    al.add(jObj.getString("user_role"));
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("user_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+
+                                    al.add(visitor);
                                 }
                             }
 
@@ -104,7 +110,12 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
-                                    al.add(jObj.getString("user_role"));
+                                    Visitor visitor = new Visitor();
+                                    visitor.setId(jObj.getInt("user_id"));
+                                    visitor.setFullname(jObj.getString("full_name"));
+                                    visitor.setEmail(jObj.getString("email_address"));
+                                    visitor.setMobile(jObj.getInt("mobile_number"));
+                                    al.add(visitor);
                                 }
                             }
 
