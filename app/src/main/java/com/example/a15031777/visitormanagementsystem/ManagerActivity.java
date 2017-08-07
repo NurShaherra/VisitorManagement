@@ -31,6 +31,7 @@ public class ManagerActivity extends AppCompatActivity {
         IbManager = (ImageButton) findViewById(R.id.imageButtonEReport);
         tvWelcome = (TextView) findViewById(R.id.textViewWelcome);
         lv = (ListView) findViewById(R.id.lv);
+        Intent intent = getIntent();
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);

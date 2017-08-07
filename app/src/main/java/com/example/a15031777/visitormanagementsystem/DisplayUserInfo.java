@@ -53,33 +53,6 @@ public class DisplayUserInfo extends AppCompatActivity {
 
             aa = new UserAdapter(this, R.layout.rowuser, al);
             listView.setAdapter(aa);
-//
-//            try {
-//                //get the response back
-//                String jsonString = request.getResponse();
-//                System.out.println(">>" + jsonString);
-//
-//                //do something with json string
-//                JSONArray jsonArray = new JSONArray(jsonString);
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    JSONObject jObj = jsonArray.getJSONObject(i);
-//
-//                    User user = new User();
-//                    user.setId(jObj.getInt("id"));
-//                    user.setFullname(jObj.getString("full_name"));
-//                    user.setEmail(jObj.getString("email_address"));
-//                    user.setUsername(jObj.getString("user_name"));
-//                    user.setRole(jObj.getString("mobile"));
-//                    user.setAddress(jObj.getString("unit_address"));
-//                    user.setBlock(jObj.getString("block_number"));
-//                    al.add(user);
-//                }
-//
-//                }
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
 
             spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -129,7 +102,14 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
-//                                    al.add(jObj.getString("user_name"));
+                                    User user = new User();
+                                    user.setId(jObj.getInt("user_id"));
+                                    user.setFullname(jObj.getString("full_name"));
+                                    user.setEmail(jObj.getString("email_address"));
+                                    user.setUsername(jObj.getString("user_name"));
+                                    user.setAddress(jObj.getString("unit_address"));
+                                    user.setBlock(jObj.getString("block_number"));
+                                    al.add(user);
                                 }
                             }
 
@@ -151,7 +131,14 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("manager")){
-//                                    al.add(jObj.getString("user_name"));
+                                    User user = new User();
+                                    user.setId(jObj.getInt("user_id"));
+                                    user.setFullname(jObj.getString("full_name"));
+                                    user.setEmail(jObj.getString("email_address"));
+                                    user.setUsername(jObj.getString("user_name"));
+                                    user.setAddress(jObj.getString("unit_address"));
+                                    user.setBlock(jObj.getString("block_number"));
+                                    al.add(user);
                                 }
                             }
 
@@ -173,7 +160,14 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("host")){
-//                                    al.add(jObj.getString("user_name"));
+                                    User user = new User();
+                                    user.setId(jObj.getInt("user_id"));
+                                    user.setFullname(jObj.getString("full_name"));
+                                    user.setEmail(jObj.getString("email_address"));
+                                    user.setUsername(jObj.getString("user_name"));
+                                    user.setAddress(jObj.getString("unit_address"));
+                                    user.setBlock(jObj.getString("block_number"));
+                                    al.add(user);
                                 }
                             }
 
@@ -196,8 +190,14 @@ public class DisplayUserInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-//                                    al.add(jObj.getString("user_name"));
-
+                                User user = new User();
+                                user.setId(jObj.getInt("user_id"));
+                                user.setFullname(jObj.getString("full_name"));
+                                user.setEmail(jObj.getString("email_address"));
+                                user.setUsername(jObj.getString("user_name"));
+                                user.setAddress(jObj.getString("unit_address"));
+                                user.setBlock(jObj.getString("block_number"));
+                                al.add(user);
                             }
 
                         } catch (Exception e) {
@@ -218,10 +218,10 @@ public class DisplayUserInfo extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String pos = parent.getItemAtPosition(position).toString();
+                    User person = (User)parent.getItemAtPosition(position);
 
                     intent = new Intent(getApplicationContext(), EditUser.class);
-                    intent.putExtra("user", pos);
+                    intent.putExtra("user", Integer.toString(person.getId()));
                     startActivity(intent);
                 }
             });

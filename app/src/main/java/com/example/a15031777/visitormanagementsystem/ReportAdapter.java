@@ -41,7 +41,6 @@ public class ReportAdapter extends ArrayAdapter<Report> {
         // Get the TextView object
       //  tvEReport = (TextView) rowView.findViewById(R.id.textViewEReport);
         // Get the ImageView object
-        ibEReport = (ImageButton) rowView.findViewById(R.id.imageButtonEReport);
 
         //Report currentReport = reportList.get(position);
 

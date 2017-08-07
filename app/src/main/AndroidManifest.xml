@@ -31,7 +31,10 @@
         <activity android:name=".SignOutManuallyActivity"/>
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".LicenseActivity" />
+        <activity android:name=".ManagerActivity"/>
+        <activity android:name=".ViewEvacuationReport"/>
         <activity android:name=".AddVisitor"></activity>
+        <activity android:name=".EditUser"></activity>
     </application>
 
 </manifest>

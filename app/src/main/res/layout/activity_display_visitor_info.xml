@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.a15031777.visitormanagementsystem.DisplayVisitorInfo">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,15 +22,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
         android:layout_marginBottom="13dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:text="Manage Visitors"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_above="@+id/spinnerVisitor"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
 
     <Spinner
         android:id="@+id/spinnerVisitor"

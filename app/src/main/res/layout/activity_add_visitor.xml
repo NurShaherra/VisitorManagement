@@ -36,7 +36,9 @@
                 android:layout_marginStart="25dp"
                 android:layout_toEndOf="@+id/imageButton"
                 android:layout_toRightOf="@+id/imageButton"
-                android:text="TextView" />
+                android:text="Add Visitor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView"

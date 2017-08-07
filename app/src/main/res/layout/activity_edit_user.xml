@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.a15031777.visitormanagementsystem.EditUser">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_marginStart="27dp"
         android:layout_toEndOf="@+id/imageView"
         android:layout_toRightOf="@+id/imageView"
-        android:text="Edit Visitor"
+        android:text="Edit User"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp" />
 
@@ -43,6 +43,18 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="35dp"
         android:text="Full name:" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_alignBaseline="@+id/buttonSave"
+        android:layout_alignBottom="@+id/buttonSave"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
 
     <EditText
         android:id="@+id/editTextName"
@@ -79,41 +91,42 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_alignStart="@+id/textView11"
-        android:layout_below="@+id/editTextEmail"
         android:layout_marginTop="18dp"
-        android:text="Transport Mode:"
+        android:text="Username:"
+        android:layout_below="@+id/editTextEmail"
         android:layout_toLeftOf="@+id/editTextEmail"
-        android:layout_toStartOf="@+id/editTextEmail" />
+        android:layout_toStartOf="@+id/editTextEmail"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp" />
 
     <EditText
-        android:id="@+id/editTextMode"
+        android:id="@+id/editTextUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12"
-        android:layout_toRightOf="@+id/textView12"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignLeft="@+id/editTextEmail"
+        android:layout_alignStart="@+id/editTextEmail" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/editTextUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_below="@+id/editTextMode"
-        android:layout_marginTop="16dp"
-        android:text="Signed in:" />
+        android:text="Unit Address:"
+        android:layout_alignBaseline="@+id/editTextUnitAdd"
+        android:layout_alignBottom="@+id/editTextUnitAdd"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14" />
 
     <EditText
-        android:id="@+id/editTextSigned"
+        android:id="@+id/editTextUnitAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextMode"
-        android:layout_alignStart="@+id/editTextMode"
-        android:layout_below="@+id/editTextMode"
+        android:layout_alignLeft="@+id/editTextUsername"
+        android:layout_alignStart="@+id/editTextUsername"
+        android:layout_below="@+id/editTextUsername"
         android:ems="10"
         android:inputType="number" />
 
@@ -121,22 +134,31 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView13"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_below="@+id/editTextSigned"
-        android:layout_marginTop="18dp"
-        android:text="Number:" />
+        android:text="Block number:"
+        android:layout_alignBaseline="@+id/editTextNumber"
+        android:layout_alignBottom="@+id/editTextNumber"
+        android:layout_toLeftOf="@+id/editTextNumber"
+        android:layout_toStartOf="@+id/editTextNumber" />
 
     <EditText
-        android:id="@+id/editTextNum"
+        android:id="@+id/editTextNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextSigned"
-        android:layout_alignStart="@+id/editTextSigned"
-        android:layout_below="@+id/editTextSigned"
+        android:layout_alignLeft="@+id/editTextUnitAdd"
+        android:layout_alignStart="@+id/editTextUnitAdd"
+        android:layout_below="@+id/editTextUnitAdd"
         android:ems="10"
         android:inputType="number" />
 
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:text="Save"
+        android:layout_below="@+id/editTextNumber"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
 
 </RelativeLayout>

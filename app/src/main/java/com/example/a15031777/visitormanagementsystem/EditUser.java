@@ -3,6 +3,9 @@ package com.example.a15031777.visitormanagementsystem;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.json.JSONObject;
@@ -10,6 +13,8 @@ import org.json.JSONObject;
 public class EditUser extends AppCompatActivity {
 
     private String userId;
+    EditText etName,etEmail, etUsername, etUnit, etNumber;
+    Button btnSave;
 
 
     @Override
@@ -18,45 +23,60 @@ public class EditUser extends AppCompatActivity {
         setContentView(R.layout.activity_edit_user);
 
         Intent intent = getIntent();
+        btnSave = (Button) findViewById(R.id.buttonSave);
         userId = intent.getStringExtra("user");
-        HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/getUserById.php?userId=" + userId);
+        //HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/getUserById.php?userId=" + userId);
+        HttpRequest request= new HttpRequest("http://localhost/FYP/getUserById.php?userId=" + userId);
         request.setMethod("GET");
         request.execute();
 
         try{
 //            //get the getcontactdetails
-//            String jsonString = request.getResponse();
-//            JSONObject jsonObj = new JSONObject(jsonString);
+            String jsonString = request.getResponse();
+            Log.d("Test", jsonString);
+
+            JSONObject jsonObj = new JSONObject(jsonString);
 //            // TODO 01: Set values in the EditText fields
 //            //use getcontactdetails.php - needs user id
-//            EditText firstName = (EditText) findViewById(R.id.editTextFirstName);
-//            //get string - is the webservice from the output eg:
-//            firstName.setText(jsonObj.getString("firstname"));
-//
-//            EditText lastName = (EditText) findViewById(R.id.editTextLastName);
-//            //(String) jsonObj.get
-//            lastName.setText(jsonObj.getString("lastname"));
-//
-//            EditText home = (EditText) findViewById(R.id.editTextHome);
-//            home.setText(jsonObj.getString("home"));
-//
-//            EditText mobile = (EditText) findViewById(R.id.editTextMobile);
-//            mobile.setText(jsonObj.getString("mobile"));
-//
-//            EditText address = (EditText) findViewById(R.id.editTextAddress);
-//            address.setText(jsonObj.getString("address"));
-//
-//            EditText country = (EditText) findViewById(R.id.editTextCountry);
-//            country.setText(jsonObj.getString("country"));
-//
-//            EditText postalcode = (EditText) findViewById(R.id.editTextPostalCode);
-//            postalcode.setText(jsonObj.getString("postalcode"));
-//
-//            EditText email = (EditText) findViewById(R.id.editTextEmail);
-//            email.setText(jsonObj.getString("email"));
+            etName = (EditText) findViewById(R.id.editTextName);
+            etEmail = (EditText) findViewById(R.id.editTextEmail);
+            etUsername = (EditText) findViewById(R.id.editTextUsername);
+            etUnit = (EditText) findViewById(R.id.editTextUnitAdd);
+            etNumber = (EditText) findViewById(R.id.editTextNumber);
+            //get string - is the webservice from the output eg:
+            etName.setText(jsonObj.getString("full_name"));
+            etEmail.setText(jsonObj.getString("email_address"));
+            etUsername.setText(jsonObj.getString("user_name"));
+            etUnit.setText(jsonObj.getString("unit_address"));
+            etNumber.setText(jsonObj.getString("block_number"));
+
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                HttpRequest request= new HttpRequest("http://10.0.2.2/FYP/updateUser.php");
+                request.setMethod("POST");
+
+                request.addData("id", userId);
+                request.addData("full_name", etName.getText().toString());
+                request.addData("user_name", etUsername.getText().toString());
+                request.addData("email_address", etEmail.getText().toString());
+                request.addData("unit_address", etUnit.getText().toString());
+                request.addData("block_number", etNumber.getText().toString());
+                request.execute();
+
+                try{
+
+                    finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
