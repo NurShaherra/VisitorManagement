@@ -21,8 +21,9 @@ import static com.example.a15031777.visitormanagementsystem.R.id.lvVisitor;
 
 public class ViewEvacuationReport extends AppCompatActivity {
     ListView lv;
-    ArrayAdapter aa;
+    ArrayAdapter<Report>aa;
     ArrayList<Report> reportList;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class ViewEvacuationReport extends AppCompatActivity {
         setContentView(R.layout.activity_view_evacuation_report);
 
         lv = (ListView) this.findViewById(R.id.lvViewEvacuationReport);
+        intent = getIntent();
 
         // Check if there is network access
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
