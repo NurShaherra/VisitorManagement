@@ -12,6 +12,11 @@ public class User {
     private String fullname;
     private String role;
     private String address;
+
+    public User() {
+
+    }
+
     private String block;
 
     public int getId() {
@@ -69,6 +74,7 @@ public class User {
     public void setBlock(String block) {
         this.block = block;
     }
+
     public String toString(){
         return getFullname() + " " + getUsername();
     }

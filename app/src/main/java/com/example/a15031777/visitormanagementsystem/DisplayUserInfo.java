@@ -51,7 +51,8 @@ public class DisplayUserInfo extends AppCompatActivity {
             //call the webservice
             request.execute();
 
-            aa = new ArrayAdapter<User>(this, R.layout.rowuser, al);
+            aa = new UserAdapter(this, R.layout.rowuser, al);
+            listView.setAdapter(aa);
 //
 //            try {
 //                //get the response back
@@ -100,11 +101,10 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("admin")){
                                     User user = new User();
-                                    user.setId(jObj.getInt("id"));
+                                    user.setId(jObj.getInt("user_id"));
                                     user.setFullname(jObj.getString("full_name"));
                                     user.setEmail(jObj.getString("email_address"));
                                     user.setUsername(jObj.getString("user_name"));
-                                    user.setRole(jObj.getString("mobile"));
                                     user.setAddress(jObj.getString("unit_address"));
                                     user.setBlock(jObj.getString("block_number"));
                                     al.add(user);
@@ -203,10 +203,10 @@ public class DisplayUserInfo extends AppCompatActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    }
 
-                    listView.setAdapter(aa);
+                    }
                     aa.notifyDataSetChanged();
+
                 }
 
                 @Override
@@ -229,7 +229,8 @@ public class DisplayUserInfo extends AppCompatActivity {
 
 
 
+
         }
     }
-    }
+}
 

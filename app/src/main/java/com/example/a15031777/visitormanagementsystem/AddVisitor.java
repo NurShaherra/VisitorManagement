@@ -41,6 +41,8 @@ public class AddVisitor extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etMobile = (EditText) findViewById(R.id.editTextMobile);
         btnSave = (Button) findViewById(R.id.buttonSave);
+        Intent i = getIntent();
+
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         final int id = pref.getInt("isLoggedIn", -1);
         btnSave.setOnClickListener(new View.OnClickListener() {

@@ -16,52 +16,44 @@ import java.util.ArrayList;
 
 public class UserAdapter extends ArrayAdapter<User> {
 
-    Context context;
-    int layoutResourceId;
-    ArrayList<User> userList = null;
+    private ArrayList<User> user;
+    private Context context;
+    private TextView fullName;
+    private TextView username;
 
-
-    public UserAdapter(Context context, int resource, ArrayList<User> objects) {
+    public UserAdapter(Context context, int resource, ArrayList<User> objects){
         super(context, resource, objects);
+        // Store the food that is passed to this adapter
+        user = objects;
+        // Store Context object as we would need to use it later
         this.context = context;
-        this.layoutResourceId = resource;
-        this.userList = objects;
     }
 
+    // getView() is the method ListView will call to get the
+    //  View object every time ListView needs a row
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        PersonHolder holder = null;
+        // The usual way to get the LayoutInflater object to
+        //  "inflate" the XML file into a View object
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        // "Inflate" the row.xml as the layout for the View object
+        View rowView = inflater.inflate(R.layout.rowuser, parent, false);
 
-        if(row == null)
-        {
-            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-            row = inflater.inflate(layoutResourceId, parent, false);
+        // Get the TextView object
+        fullName = (TextView) rowView.findViewById(R.id.textViewFullName);
+        username = (TextView) rowView.findViewById(R.id.textViewUsername);
 
-            holder = new PersonHolder();
-            holder.fullName = (TextView)row.findViewById(R.id.textViewFullName);
-            holder.username = (TextView)row.findViewById(R.id.textViewUsername);
+        // The parameter "position" is the index of the
+        //  row ListView is requesting.
+        //  We get back the food at the same index.
+        User currentFood = user.get(position);
+        // Set the TextView to show the food
 
-            row.setTag(holder);
-        }
-        else
-        {
-            holder = (PersonHolder)row.getTag();
-        }
+        fullName.setText(currentFood.getFullname());
+        username.setText(currentFood.getUsername());
 
-        User person = userList.get(position);
-        holder.fullName.setText(person.getFullname());
-        holder.username.setText(person.getUsername());
-        return row;
+        // Return the nicely done up View to the ListView
+        return rowView;
     }
-
-    static class PersonHolder
-    {
-        TextView fullName;
-        TextView username;
-    }
-
-
-
-
 }
