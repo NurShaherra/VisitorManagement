@@ -19,7 +19,7 @@
         android:layout_marginTop="27dp" />
 
     <TextView
-        android:id="@+id/textViewCreateDate"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/buttonSave"
         android:layout_alignBottom="@+id/buttonSave"
-        android:layout_alignLeft="@+id/textViewCreateDate"
-        android:layout_alignStart="@+id/textViewCreateDate"
+        android:layout_alignLeft="@+id/textViewTitle"
+        android:layout_alignStart="@+id/textViewTitle"
         android:layout_marginLeft="21dp"
         android:layout_marginStart="21dp"
         android:text="Delete" />

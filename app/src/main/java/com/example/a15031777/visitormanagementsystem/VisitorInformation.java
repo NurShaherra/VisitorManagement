@@ -30,7 +30,7 @@ public class VisitorInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visitor_information);
 
-        ibVInfo = (ImageButton) findViewById(R.id.imageButtonEReport);
+        ibVInfo = (ImageButton) findViewById(R.id.ibsignedInUserInfo);
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
         lvVisitor = (ListView) findViewById(R.id.lvVisitor);
         intent = getIntent();
@@ -72,7 +72,7 @@ public class VisitorInformation extends AppCompatActivity {
                     al.add("Arrived By: " + jObj.getString("mode_of_transport"));
                     al.add("Signed-in: " + jObj.getString("signed_in"));
                     al.add("Mobile Number: " + jObj.getString("mobile_number"));
-                    al.add(jObj.getString(" "));
+                    //al.add(" ");
                 }
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
                 lvVisitor.setAdapter(aa);

@@ -7,7 +7,7 @@
     tools:context="com.example.a15031777.visitormanagementsystem.ManagerActivity">
 
     <ImageButton
-        android:id="@+id/imageButtonEReport"
+        android:id="@+id/ibsignedInUserInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -22,12 +22,12 @@
         android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButtonEReport"
+        android:layout_alignTop="@+id/ibsignedInUserInfo"
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/imageButtonEReport"
-        android:layout_toRightOf="@+id/imageButtonEReport"
+        android:layout_toEndOf="@+id/ibsignedInUserInfo"
+        android:layout_toRightOf="@+id/ibsignedInUserInfo"
         android:text="Welcome" />
 
     <ListView
@@ -36,6 +36,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageButtonEReport" />
+        android:layout_below="@+id/ibsignedInUserInfo" />
 
 </RelativeLayout>
