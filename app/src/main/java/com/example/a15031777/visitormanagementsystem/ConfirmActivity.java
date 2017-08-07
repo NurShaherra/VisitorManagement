@@ -1,11 +1,14 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,6 +24,7 @@ import org.json.JSONTokener;
 public class ConfirmActivity extends AppCompatActivity {
     TextView tvTitle, tvName, tvEmail, tvNum, tvArrived, tvLicense;
     Button btnConfirm;
+    String email, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,10 @@ public class ConfirmActivity extends AppCompatActivity {
                 tvName.setText(jsonObj.getString("full_name"));
                 tvEmail.setText(jsonObj.getString("email_address"));
                 tvNum.setText(jsonObj.getString("mobile_number"));
+                JSONObject jObj = jsonObj.getJSONObject("user_email");
+                email = jObj.getString("email_address");
+                name = jsonObj.getString("full_name");
+                Log.d("check",email);
                 by = jsonObj.getString("mode_of_transport");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -65,6 +73,9 @@ public class ConfirmActivity extends AppCompatActivity {
         } else {
             Toast.makeText(ConfirmActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         if (sign.equalsIgnoreCase("Sign In")) {
             tvArrived.setText(arrivedBy);
             tvLicense.setText(license);
@@ -88,6 +99,7 @@ public class ConfirmActivity extends AppCompatActivity {
                             Log.d("JsonString", "jsonString: " + jsonString);
                             JSONObject jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
                             String message = jsonObj.getString("message");
+                            new SendMail().execute();
                             Toast.makeText(ConfirmActivity.this, message, Toast.LENGTH_SHORT).show();
                             Intent back = new Intent(ConfirmActivity.this, SecurityGuardActivity.class);
                             startActivity(back);
@@ -137,5 +149,66 @@ public class ConfirmActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private class SendMail extends AsyncTask<String, Void, Integer> {
+        ProgressDialog pd = null;
+        String error = null;
+        Integer result;
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+            pd = new ProgressDialog(ConfirmActivity.this);
+            pd.setTitle("Sending Mail");
+            pd.setMessage("Please wait...");
+            pd.setCancelable(false);
+            pd.show();
+        }
+
+        @Override
+        protected Integer doInBackground(String... params) {
+            // TODO Auto-generated method stub
+
+            GMailSender sender = new GMailSender("vms.fyp@gmail.com", "fyp12345");
+
+            sender.setTo(new String[]{email});
+            sender.setFrom("vms.fyp@gmail.com");
+            sender.setSubject("A visitor signed in.");
+            sender.setBody("Your visitor, "+name+", has just signed in!");
+            try {
+                if (sender.send()) {
+                    System.out.println("Message sent");
+                    return 1;
+                } else {
+                    return 2;
+                }
+            } catch (Exception e) {
+                error = e.getMessage();
+                Log.e("SendMail", e.getMessage(), e);
+            }
+
+            return 3;
+        }
+
+        protected void onPostExecute(Integer result) {
+            pd.dismiss();
+            if (error != null) {
+                Log.d("error", error);
+            }
+            if (result == 1) {
+                Toast.makeText(ConfirmActivity.this,
+                        "Email was sent successfully.", Toast.LENGTH_LONG)
+                        .show();
+            } else if (result == 2) {
+                Toast.makeText(ConfirmActivity.this,
+                        "Email was not sent.", Toast.LENGTH_LONG).show();
+            } else if (result == 3) {
+                Toast.makeText(ConfirmActivity.this,
+                        "There was a problem sending the email.",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

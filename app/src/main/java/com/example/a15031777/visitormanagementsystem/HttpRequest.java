@@ -1,5 +1,8 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,9 +12,6 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import android.os.AsyncTask;
-import android.util.Log;
 
 
 public class HttpRequest {
