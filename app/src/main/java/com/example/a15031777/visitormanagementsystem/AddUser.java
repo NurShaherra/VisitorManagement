@@ -1,6 +1,7 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -20,15 +21,16 @@ public class AddUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-        etusername = (EditText) findViewById(R.id.editTextUserName);
+        etusername = (EditText) findViewById(R.id.editTextfullname);
         etemail = (EditText) findViewById(R.id.editTextEmail);
-        etrole = (EditText) findViewById(R.id.editTextRole);
-        etfullname = (EditText) findViewById(R.id.editTextFullname);
-        etunit = (EditText) findViewById(R.id.editTextUnit);
-        etblock = (EditText) findViewById(R.id.editTextBlock);
+        etrole = (EditText) findViewById(R.id.editTextMode);
+        etfullname = (EditText) findViewById(R.id.editTextSignedIn);
+        etunit = (EditText) findViewById(R.id.editTextMobile);
+        etblock = (EditText) findViewById(R.id.editTextUnit_id);
         etpw = (EditText) findViewById(R.id.editTextPassword);
         btnsave = (Button) findViewById(R.id.buttonSave);
 
+        Intent i = getIntent();
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {

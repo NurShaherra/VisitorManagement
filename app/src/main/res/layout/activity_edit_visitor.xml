@@ -48,7 +48,7 @@
             android:text="Full Name:" />
 
         <EditText
-            android:id="@+id/editTextUserName"
+            android:id="@+id/editTextfullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -73,8 +73,8 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:layout_below="@+id/textView3"
-            android:layout_alignLeft="@+id/editTextUserName"
-            android:layout_alignStart="@+id/editTextUserName" />
+            android:layout_alignLeft="@+id/editTextfullname"
+            android:layout_alignStart="@+id/editTextfullname" />
 
         <TextView
             android:id="@+id/textView7"
@@ -84,11 +84,11 @@
             android:layout_below="@+id/editTextEmail"
             android:layout_alignLeft="@+id/textView5"
             android:layout_alignStart="@+id/textView5"
-            android:layout_toLeftOf="@+id/editTextRole"
-            android:layout_toStartOf="@+id/editTextRole" />
+            android:layout_toLeftOf="@+id/editTextMode"
+            android:layout_toStartOf="@+id/editTextMode" />
 
         <EditText
-            android:id="@+id/editTextRole"
+            android:id="@+id/editTextMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -102,40 +102,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Signed in:"
-            android:layout_alignBaseline="@+id/editTextFullname"
-            android:layout_alignBottom="@+id/editTextFullname"
+            android:layout_alignBaseline="@+id/editTextSignedIn"
+            android:layout_alignBottom="@+id/editTextSignedIn"
             android:layout_alignLeft="@+id/textView7"
             android:layout_alignStart="@+id/textView7" />
 
         <EditText
-            android:id="@+id/editTextFullname"
+            android:id="@+id/editTextSignedIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:layout_below="@+id/editTextRole"
-            android:layout_alignLeft="@+id/editTextRole"
-            android:layout_alignStart="@+id/editTextRole" />
+            android:layout_below="@+id/editTextMode"
+            android:layout_alignLeft="@+id/editTextMode"
+            android:layout_alignStart="@+id/editTextMode" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mobile:"
-            android:layout_alignBaseline="@+id/editTextUnit"
-            android:layout_alignBottom="@+id/editTextUnit"
+            android:layout_alignBaseline="@+id/editTextMobile"
+            android:layout_alignBottom="@+id/editTextMobile"
             android:layout_alignLeft="@+id/textView13"
             android:layout_alignStart="@+id/textView13" />
 
         <EditText
-            android:id="@+id/editTextUnit"
+            android:id="@+id/editTextMobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:layout_below="@+id/editTextFullname"
-            android:layout_alignLeft="@+id/editTextFullname"
-            android:layout_alignStart="@+id/editTextFullname" />
+            android:layout_below="@+id/editTextSignedIn"
+            android:layout_alignLeft="@+id/editTextSignedIn"
+            android:layout_alignStart="@+id/editTextSignedIn" />
 
         <TextView
             android:id="@+id/textView18"
@@ -145,17 +145,17 @@
             android:layout_alignLeft="@+id/textView17"
             android:layout_alignRight="@+id/textView3"
             android:layout_alignStart="@+id/textView17"
-            android:layout_below="@+id/editTextUnit"
+            android:layout_below="@+id/editTextMobile"
             android:layout_marginTop="14dp"
             android:text="User role:" />
 
         <EditText
-            android:id="@+id/editTextBlock"
+            android:id="@+id/editTextUnit_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editTextUnit"
-            android:layout_alignStart="@+id/editTextUnit"
-            android:layout_below="@+id/editTextUnit"
+            android:layout_alignLeft="@+id/editTextMobile"
+            android:layout_alignStart="@+id/editTextMobile"
+            android:layout_below="@+id/editTextMobile"
             android:ems="10"
             android:inputType="textMultiLine" />
 
@@ -163,7 +163,7 @@
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextBlock"
+            android:layout_below="@+id/editTextUnit_id"
             android:layout_marginTop="59dp"
             android:layout_toEndOf="@+id/textView17"
             android:layout_toRightOf="@+id/textView17"
@@ -173,8 +173,8 @@
             android:id="@+id/buttonDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextBlock"
-            android:layout_alignRight="@+id/editTextBlock"
+            android:layout_alignEnd="@+id/editTextUnit_id"
+            android:layout_alignRight="@+id/editTextUnit_id"
             android:layout_alignTop="@+id/buttonSave"
             android:layout_marginEnd="23dp"
             android:layout_marginRight="23dp"

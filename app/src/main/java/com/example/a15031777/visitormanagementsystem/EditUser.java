@@ -48,7 +48,7 @@ public class EditUser extends AppCompatActivity {
                 Log.d("Test", jsonString);
 
                 JSONObject jsonObj = new JSONObject(jsonString);
-                etName = (EditText) findViewById(R.id.editTextUserName);
+                etName = (EditText) findViewById(R.id.editTextfullname);
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
                 etUsername = (EditText) findViewById(R.id.editTextUsername);
                 etUnit = (EditText) findViewById(R.id.editTextUnitAdd);

@@ -37,9 +37,9 @@ public class AddVisitor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_visitor);
-        etName = (EditText) findViewById(R.id.editTextUserName);
+        etName = (EditText) findViewById(R.id.editTextfullname);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
-        etMobile = (EditText) findViewById(R.id.editTextUnit);
+        etMobile = (EditText) findViewById(R.id.editTextMobile);
         btnSave = (Button) findViewById(R.id.buttonSave);
         Intent i = getIntent();
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
