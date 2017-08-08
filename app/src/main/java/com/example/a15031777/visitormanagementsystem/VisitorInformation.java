@@ -72,7 +72,7 @@ public class VisitorInformation extends AppCompatActivity {
                     al.add("Arrived By: " + jObj.getString("mode_of_transport"));
                     al.add("Signed-in: " + jObj.getString("signed_in"));
                     al.add("Mobile Number: " + jObj.getString("mobile_number"));
-                    //al.add(" ");
+                    al.add(" ");
                 }
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
                 lvVisitor.setAdapter(aa);

@@ -240,7 +240,7 @@ public class DisplayUserInfo extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_host, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -255,6 +255,9 @@ public class DisplayUserInfo extends AppCompatActivity {
             Intent i = new Intent(DisplayUserInfo.this, MainActivity.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.menu_add){
+            Intent i = new Intent(DisplayUserInfo.this, AddUser.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
