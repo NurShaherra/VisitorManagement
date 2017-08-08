@@ -29,7 +29,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         etIc = (EditText) findViewById(R.id.editTextIC);
         btnNext = (Button) findViewById(R.id.buttonNext);
-        spn = (Spinner) findViewById(R.id.spinnerTrans);
+        spn = (Spinner) findViewById(R.id.spinnerAdd);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.transport, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);

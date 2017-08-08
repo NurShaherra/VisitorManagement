@@ -28,6 +28,8 @@
     <string name="id">Visitor Id:</string>
     <string name="mobile">Mobile Number:</string>
     <string name="addAll">Add All</string>
+    <string name="choose">Choose how many visitors to add</string>
+    <string name="choose2">Select how many visitors to add:</string>
     <string-array name="roles">
         <item>All</item>
         <item>Administrator</item>
@@ -44,6 +46,12 @@
         <item>Month</item>
         <item>Year</item>
     </string-array>
-
+    <string-array name="numbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 
 </resources>

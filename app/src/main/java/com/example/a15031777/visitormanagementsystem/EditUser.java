@@ -70,7 +70,6 @@ public class EditUser extends AppCompatActivity {
 
                     HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php");
                     request.setMethod("POST");
-
                     request.addData("id", userId);
                     request.addData("user_name", etUsername.getText().toString());
                     request.addData("email_address", etEmail.getText().toString());

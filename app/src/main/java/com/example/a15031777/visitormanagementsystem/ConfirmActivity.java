@@ -232,6 +232,7 @@ public class ConfirmActivity extends AppCompatActivity {
             sender.setFrom("vms.fyp@gmail.com");
             sender.setSubject("A visitor signed in.");
             sender.setBody("Your visitor, " + name + ", has just signed in!");
+            sender.setBody("Your visitor, " + name + ", has just signed in!");
             try {
                 if (sender.send()) {
                     System.out.println("Message sent");

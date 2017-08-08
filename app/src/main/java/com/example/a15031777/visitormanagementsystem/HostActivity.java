@@ -44,7 +44,7 @@ public class HostActivity extends AppCompatActivity {
                     startActivity(i);
 
                 } else if (position == 1) {
-                    Intent i = new Intent(HostActivity.this, AddVisitor.class);
+                    Intent i = new Intent(HostActivity.this, ChooseAddActivity.class);
                     startActivity(i);
                 } else if (position == 2) {
                     Intent i = new Intent(HostActivity.this, SignInManuallyActivity.class);
