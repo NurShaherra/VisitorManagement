@@ -7,6 +7,7 @@
     <string name="evacuationReport">Evacuation Report</string>
     <string name="userInformation">User Information</string>
     <string name="visitorInformation">Visitor Information</string>
+    <string name="generateReport">Generate Evacuation Report</string>
     <string name="scan">Scan QR Code</string>
     <string name="manually">Manually</string>
     <string name="next">Next</string>

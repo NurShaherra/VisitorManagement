@@ -28,7 +28,7 @@ public class ManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
 
-        IbManager = (ImageButton) findViewById(R.id.imageButtonEReport);
+        IbManager = (ImageButton) findViewById(R.id.ib);
         tvWelcome = (TextView) findViewById(R.id.textViewWelcome);
         lv = (ListView) findViewById(R.id.lv);
         Intent intent = getIntent();

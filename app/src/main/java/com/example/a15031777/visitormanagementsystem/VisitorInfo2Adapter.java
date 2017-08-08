@@ -1,6 +1,8 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +13,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by 15017199 on 7/8/2017.
+ * Created by 15017199 on 8/8/2017.
  */
 
-public class ReportAdapter extends ArrayAdapter<Report> {
-    private ArrayList<Report> reportList;
+public class VisitorInfo2Adapter extends ArrayAdapter<Report> {
+    private ArrayList<VisitorInfo2> infoList;
     private Context context;
-    private TextView tvEReport;
-    private ImageButton ibEReport;
+    private TextView tvTitle;
+    private ImageButton ib;
 
-    public ReportAdapter(Context context, int resource, ArrayList<Report> objects) {
-        super(context, resource, objects);
-        reportList = objects;
+    public VisitorInfo2Adapter(Context context, int resource, ArrayList<VisitorInfo2> objects) {
+        super(context, resource);
+        infoList = objects;
         this.context = context;
     }
 
@@ -32,10 +34,10 @@ public class ReportAdapter extends ArrayAdapter<Report> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row, parent, false);
+        View rowView = inflater.inflate(R.layout.row_generate_report, parent, false);
 
         // Get the ImageView object
-        ibEReport = (ImageButton) rowView.findViewById(R.id.ib);
+        ib = (ImageButton) rowView.findViewById(R.id.ib);
 
         // Return the nicely done up View to the ListView
 
