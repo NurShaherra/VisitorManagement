@@ -23,12 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/ib"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
         android:layout_toEndOf="@+id/ib"
         android:layout_toRightOf="@+id/ib"
-        android:text="@string/viewVisitorInfo" />
+        android:text="@string/viewVisitorInfo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp" />
 
     <ListView
         android:id="@+id/lvVisitor"
@@ -36,6 +38,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ib" />
+        android:layout_below="@+id/ib"
+        android:layout_marginTop="18dp" />
 
 </RelativeLayout>
