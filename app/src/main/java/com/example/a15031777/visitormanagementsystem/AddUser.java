@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class AddUser extends AppCompatActivity {
     EditText etusername, etemail, etrole, etfullname, etunit, etblock, etpw;
-    Button btnsave, btndelete;
+    Button btnsave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
