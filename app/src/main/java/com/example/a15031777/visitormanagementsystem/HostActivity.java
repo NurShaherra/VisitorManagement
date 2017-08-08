@@ -40,7 +40,8 @@ public class HostActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    Intent i = new Intent(HostActivity.this,ViewVisitorsActivity.class);
+                    Intent i = new Intent(HostActivity.this, ViewVisitorsActivity.class);
+                    edit.putString("sign", "Display Visitors").commit();
                     startActivity(i);
 
                 } else if (position == 1) {

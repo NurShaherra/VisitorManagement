@@ -40,7 +40,7 @@ public class SecurityGuardActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    Intent i = new Intent(SecurityGuardActivity.this, AddVisitor.class);
+                    Intent i = new Intent(SecurityGuardActivity.this, ChooseAddActivity.class);
                     startActivity(i);
                 } else if (position == 1) {
                     Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);

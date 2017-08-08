@@ -157,7 +157,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
                 }
             });
-        } else {
+        } else if (sign.equalsIgnoreCase("Display Visitors")){
             tvArrived.setText(by);
             tvLicense.setText("-");
             btnConfirm.setText("Resend QRCode");
