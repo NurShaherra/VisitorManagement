@@ -1,11 +1,13 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +24,7 @@ public class EditUser extends AppCompatActivity {
 
     private String userId;
     EditText etName,etEmail, etUsername, etUnit, etNumber;
-    Button btnSave;
+    Button btnSave, btnDelete;
 
 
     @Override
@@ -32,6 +34,8 @@ public class EditUser extends AppCompatActivity {
 
         Intent intent = getIntent();
         btnSave = (Button) findViewById(R.id.buttonSave);
+        btnDelete = (Button) findViewById(R.id.buttonDelete);
+
         userId = intent.getStringExtra("user");
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -86,6 +90,37 @@ public class EditUser extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                }
+            });
+
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new AlertDialog.Builder(getApplicationContext())
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Delete visitor")
+                            .setMessage("Are you sure you want to delete?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteUser.php?userId=" + userId);
+
+                                    request.setMethod("POST");
+                                    request.addData("user_id", userId);
+                                    request.execute();
+
+                                    try{
+
+                                        finish();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
                 }
             });
         }

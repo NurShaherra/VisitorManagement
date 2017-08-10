@@ -203,15 +203,16 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-                                Visitor visitor = new Visitor();
-                                visitor.setId(jObj.getInt("visitor_id"));
-                                visitor.setFullname(jObj.getString("full_name"));
-                                visitor.setEmail(jObj.getString("email_address"));
-                                visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                visitor.setSign_in(jObj.getInt("signed_in"));
-                                visitor.setMobile(jObj.getInt("mobile_number"));
-                                visitor.setUserId(jObj.getInt("user_id"));
-                                al.add(visitor);
+
+                                String visitorId = jObj.getString("visitor_id");
+                                String name = jObj.getString("full_name");
+                                String email = jObj.getString("email_address");
+                                String mode = jObj.getString("mode_of_transport");
+                                String sign_in = jObj.getString("signed_in");
+                                String mobile = jObj.getString("mobile_number");
+                                String userId = jObj.getString("user_id");
+                                Visitor v = new Visitor(Integer.parseInt(visitorId), name, email, Integer.parseInt(mobile), mode, Integer.parseInt(sign_in), Integer.parseInt(userId));
+                                al.add(v);
                             }
 
                         } catch (Exception e) {
