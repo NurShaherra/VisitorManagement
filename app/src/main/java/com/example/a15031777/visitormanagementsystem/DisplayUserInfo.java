@@ -28,6 +28,7 @@ public class DisplayUserInfo extends AppCompatActivity {
     ListView listView;
     Spinner spn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +77,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("admin")){
+                                if (role.equalsIgnoreCase("admin")) {
                                     User user = new User();
                                     user.setId(jObj.getInt("user_id"));
                                     user.setFullname(jObj.getString("full_name"));
@@ -88,10 +89,12 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 }
                             }
 
+                            aa.notifyDataSetChanged();
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    } else if (selectedItem.equalsIgnoreCase("Security Guard")){
+                    } else if (selectedItem.equalsIgnoreCase("Security Guard")) {
                         al.clear();
                         try {
                             //get the response back
@@ -105,7 +108,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("security guard")){
+                                if (role.equalsIgnoreCase("security guard")) {
                                     User user = new User();
                                     user.setId(jObj.getInt("user_id"));
                                     user.setFullname(jObj.getString("full_name"));
@@ -117,10 +120,13 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 }
                             }
 
+                            aa.notifyDataSetChanged();
+
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    } else if (selectedItem.equalsIgnoreCase("Manager")){
+                    } else if (selectedItem.equalsIgnoreCase("Manager")) {
                         al.clear();
                         try {
                             //get the response back
@@ -134,7 +140,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("manager")){
+                                if (role.equalsIgnoreCase("manager")) {
                                     User user = new User();
                                     user.setId(jObj.getInt("user_id"));
                                     user.setFullname(jObj.getString("full_name"));
@@ -145,6 +151,9 @@ public class DisplayUserInfo extends AppCompatActivity {
                                     al.add(user);
                                 }
                             }
+
+                            aa.notifyDataSetChanged();
+
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -163,7 +172,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("host")){
+                                if (role.equalsIgnoreCase("host")) {
                                     User user = new User();
                                     user.setId(jObj.getInt("user_id"));
                                     user.setFullname(jObj.getString("full_name"));
@@ -175,7 +184,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 }
                             }
 
-
+                            aa.notifyDataSetChanged();
 
 
                         } catch (Exception e) {
@@ -204,6 +213,9 @@ public class DisplayUserInfo extends AppCompatActivity {
                                 al.add(user);
                             }
 
+                            aa.notifyDataSetChanged();
+
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -222,7 +234,7 @@ public class DisplayUserInfo extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    User person = (User)parent.getItemAtPosition(position);
+                    User person = (User) parent.getItemAtPosition(position);
 
                     intent = new Intent(getApplicationContext(), EditUser.class);
                     intent.putExtra("user", Integer.toString(person.getId()));
@@ -230,12 +242,53 @@ public class DisplayUserInfo extends AppCompatActivity {
                 }
             });
 
-
-
-
-
         }
     }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Check if there is network access
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            //helper class - parse in the http url
+            final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllUsers.php");
+            //specify the method
+            request.setMethod("GET");
+            //call the webservice
+            request.execute();
+
+            aa = new UserAdapter(this, R.layout.rowuser, al);
+            listView.setAdapter(aa);
+
+            try {
+                al.clear();
+                String jsonString = request.getResponse();
+
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                        User user = new User();
+                        user.setId(jObj.getInt("user_id"));
+                        user.setFullname(jObj.getString("full_name"));
+                        user.setEmail(jObj.getString("email_address"));
+                        user.setUsername(jObj.getString("user_name"));
+                        user.setAddress(jObj.getString("unit_address"));
+                        user.setBlock(jObj.getString("block_number"));
+                        al.add(user);
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -248,6 +301,8 @@ public class DisplayUserInfo extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here.
         int id = item.getItemId();
+
+
         if (id == R.id.menu_logout) {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(DisplayUserInfo.this);
             SharedPreferences.Editor edit = pref.edit();
@@ -255,9 +310,10 @@ public class DisplayUserInfo extends AppCompatActivity {
             Intent i = new Intent(DisplayUserInfo.this, MainActivity.class);
             startActivity(i);
             return true;
-        } else if (id == R.id.menu_add){
+        } else if (id == R.id.add){
             Intent i = new Intent(DisplayUserInfo.this, AddUser.class);
             startActivity(i);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

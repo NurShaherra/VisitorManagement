@@ -248,6 +248,49 @@ public class DisplayVisitorInfo extends AppCompatActivity {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // Check if there is network access
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            //helper class - parse in the http url
+            final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/getAllVisitors.php");
+            //specify the method
+            request.setMethod("GET");
+            //call the webservice
+            request.execute();
+
+            aa = new VisitorAdapter(this, R.layout.rowvisitor, al);
+            listView.setAdapter(aa);
+
+            try {
+                al.clear();
+                String jsonString = request.getResponse();
+
+                JSONArray jsonArray = new JSONArray(jsonString);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+
+                    Visitor visitor = new Visitor();
+                    visitor.setId(jObj.getInt("visitor_id"));
+                    visitor.setFullname(jObj.getString("full_name"));
+                    visitor.setEmail(jObj.getString("email_address"));
+                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                    visitor.setSign_in(jObj.getInt("signed_in"));
+                    visitor.setMobile(jObj.getInt("mobile_number"));
+                    visitor.setUserId(jObj.getInt("user_id"));
+                    al.add(visitor);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_host, menu);

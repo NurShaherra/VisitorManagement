@@ -74,7 +74,7 @@ public class EditUser extends AppCompatActivity {
 
                     HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateUser.php");
                     request.setMethod("POST");
-                    request.addData("id", userId);
+                    request.addData("userId", userId);
                     request.addData("user_name", etUsername.getText().toString());
                     request.addData("email_address", etEmail.getText().toString());
                     request.addData("full_name", etName.getText().toString());
@@ -96,31 +96,32 @@ public class EditUser extends AppCompatActivity {
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    new AlertDialog.Builder(getApplicationContext())
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .setTitle("Delete visitor")
-                            .setMessage("Are you sure you want to delete?")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
+//                    new AlertDialog.Builder(getApplicationContext())
+//                            .setIcon(android.R.drawable.ic_dialog_alert)
+//                            .setTitle("Delete visitor")
+//                            .setMessage("Are you sure you want to delete?")
+//                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+//                            {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
                                     HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteUser.php?userId=" + userId);
 
                                     request.setMethod("POST");
-                                    request.addData("user_id", userId);
+                                    request.addData("userId", userId);
                                     request.execute();
 
                                     try{
-
+                                        String jsonString = request.getResponse();
+                                        Log.d("JsonString", "jsonString: " + jsonString);
                                         finish();
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
-                                }
-
-                            })
-                            .setNegativeButton("No", null)
-                            .show();
+//                                }
+//
+//                            })
+//                            .setNegativeButton("No", null)
+//                            .show();
                 }
             });
         }

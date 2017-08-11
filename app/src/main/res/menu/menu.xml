@@ -3,9 +3,7 @@
     <item android:title="Profile"
         android:id="@+id/profile">
     </item>
-    <item android:title="Edit"
-        android:id="@+id/edit">
-    </item>
+
     <item android:title="Add"
         android:id="@+id/add">
     </item>
