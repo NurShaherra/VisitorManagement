@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class signedInUserInfo_generateEReport extends AppCompatActivity {
+public class SignedInUserInfo_generateEReport extends AppCompatActivity {
     ListView lv;
     ArrayAdapter<Report> aa;
     ArrayList<Report> reportList;

@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a15031777.visitormanagementsystem.signedInUserInfo_generateEReport">
+    tools:context="com.example.a15031777.visitormanagementsystem.SignedInUserInfo_generateEReport">
 
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ib" />
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

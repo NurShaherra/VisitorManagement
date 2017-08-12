@@ -85,7 +85,7 @@ public class GenerateEvacuationReport extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent a = new Intent(GenerateEvacuationReport.this, signedInUserInfo_generateEReport.class);
+                Intent a = new Intent(GenerateEvacuationReport.this, SignedInUserInfo_generateEReport.class);
 
             }
         });
