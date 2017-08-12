@@ -22,15 +22,12 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
         android:text="Manage Visitors"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp"
-        android:layout_alignTop="@+id/ib"
-        android:layout_toRightOf="@+id/ib"
-        android:layout_toEndOf="@+id/ib"
-        android:layout_marginTop="22dp" />
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/spinnerVisitor"
+        android:layout_centerHorizontal="true" />
 
     <Spinner
         android:id="@+id/spinnerVisitor"

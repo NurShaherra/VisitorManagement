@@ -10,25 +10,25 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="33dp"
         app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/buttonQR"
-        android:layout_toStartOf="@+id/buttonQR"
-        android:layout_marginRight="25dp"
-        android:layout_marginEnd="25dp" />
+        android:layout_toStartOf="@+id/buttonQR" />
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_toEndOf="@+id/imageButton"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:layout_above="@+id/buttonQR"
         android:layout_toRightOf="@+id/imageButton"
-        android:text="TextView" />
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_marginBottom="18dp" />
 
     <Button
         android:id="@+id/buttonQR"

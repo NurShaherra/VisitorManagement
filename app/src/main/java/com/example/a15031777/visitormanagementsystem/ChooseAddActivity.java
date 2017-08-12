@@ -31,6 +31,15 @@ public class ChooseAddActivity extends AppCompatActivity {
                 } else if (spn.getSelectedItem().toString().equalsIgnoreCase("2")){
                     Intent i = new Intent(ChooseAddActivity.this,Add2Visitor.class);
                     startActivity(i);
+                } else if (spn.getSelectedItem().toString().equalsIgnoreCase("3")) {
+                    Intent i = new Intent(ChooseAddActivity.this, Add3Visitor.class);
+                    startActivity(i);
+                } else if (spn.getSelectedItem().toString().equalsIgnoreCase("4")) {
+                    Intent i = new Intent(ChooseAddActivity.this, Add4Visitor.class);
+                    startActivity(i);
+                } else if (spn.getSelectedItem().toString().equalsIgnoreCase("5")) {
+                    Intent i = new Intent(ChooseAddActivity.this, Add5Visitor.class);
+                    startActivity(i);
                 }
 
             }

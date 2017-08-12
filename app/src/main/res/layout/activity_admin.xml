@@ -21,15 +21,15 @@
         android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="19dp"
-        android:layout_toEndOf="@+id/imageButton"
-        android:layout_toRightOf="@+id/imageButton"
         android:text="Welcome Admin!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="18sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/lvThings"
+        android:layout_toRightOf="@+id/imageButton"
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
     <ListView
         android:id="@+id/lvThings"
         android:layout_width="match_parent"

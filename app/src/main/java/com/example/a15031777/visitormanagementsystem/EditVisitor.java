@@ -71,7 +71,7 @@ public class EditVisitor extends AppCompatActivity {
                 public void onClick(View v) {
                     HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateVisitor.php");
                     request.setMethod("POST");
-                    request.addData("id", visitorId);
+                    request.addData("visitorId", visitorId);
                     request.addData("full_name", etFullname.getText().toString());
                     request.addData("email_address", etEmail.getText().toString());
                     request.addData("mode_of_transport", etmode.getText().toString());
@@ -104,7 +104,7 @@ public class EditVisitor extends AppCompatActivity {
                                     HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteVisitor.php?visitorId=" + visitorId);
 
                                     request.setMethod("POST");
-                                    request.addData("visitor_id", visitorId);
+                                    request.addData("visitorId", visitorId);
                                     request.execute();
 
                                     try{
