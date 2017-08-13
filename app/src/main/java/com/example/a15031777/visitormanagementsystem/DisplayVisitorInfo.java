@@ -203,7 +203,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Visitor person = (Visitor)parent.getItemAtPosition(position);
+                    Visitor2 person = (Visitor2)parent.getItemAtPosition(position);
                     intent = new Intent(getApplicationContext(), EditVisitor.class);
                     intent.putExtra("visitor", Integer.toString(person.getId()));
                     startActivity(intent);

@@ -54,7 +54,7 @@ public class EditVisitor extends AppCompatActivity {
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
                 etsignedin = (EditText) findViewById(R.id.editTextSignedIn);
                 etmode = (EditText) findViewById(R.id.editTextMode);
-                etNumber = (EditText) findViewById(R.id.editTextNumber);
+                etNumber = (EditText) findViewById(R.id.editTextMobile);
                 etunitid = (EditText) findViewById(R.id.editTextUnit_id);
 
                 //get string - is the webservice from the output eg:
@@ -73,7 +73,7 @@ public class EditVisitor extends AppCompatActivity {
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/updateVisitor.php");
+                    HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/editVisitor.php");
                     request.setMethod("POST");
                     request.addData("visitorId", visitorId);
                     request.addData("full_name", etFullname.getText().toString());
@@ -100,32 +100,24 @@ public class EditVisitor extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
-                    builder.setTitle("Enter Bio:")
-                            .setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteVisitor.php?visitorId=" + visitorId);
+                                    HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteVisitor.php?visitorId=" + visitorId);
 
                                     request.setMethod("POST");
                                     request.addData("visitorId", visitorId);
                                     request.execute();
 
                                     try{
+                                        Toast.makeText(EditVisitor.this, "Delete successfully!", Toast.LENGTH_SHORT).show();
 
                                         finish();
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }                                }
                             });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
+
 
                 }
-            });
-
-        }
-    }
+            }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

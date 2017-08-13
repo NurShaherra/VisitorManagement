@@ -96,14 +96,7 @@ public class EditUser extends AppCompatActivity {
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    new AlertDialog.Builder(getApplicationContext())
-//                            .setIcon(android.R.drawable.ic_dialog_alert)
-//                            .setTitle("Delete visitor")
-//                            .setMessage("Are you sure you want to delete?")
-//                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-//                            {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
+//
                                     HttpRequest request= new HttpRequest("https://pyramidal-drift.000webhostapp.com/deleteUser.php?userId=" + userId);
 
                                     request.setMethod("POST");
@@ -117,16 +110,11 @@ public class EditUser extends AppCompatActivity {
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
-//                                }
-//
-//                            })
-//                            .setNegativeButton("No", null)
-//                            .show();
+
                 }
             });
+            }
         }
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
