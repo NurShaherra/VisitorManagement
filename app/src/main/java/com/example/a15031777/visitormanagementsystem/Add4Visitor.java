@@ -35,7 +35,7 @@ import java.io.IOException;
 public class Add4Visitor extends AppCompatActivity {
     EditText etName, etEmail, etMobile, etName2, etEmail2, etMobile2, etName3, etEmail3, etMobile3, etName4, etEmail4, etMobile4;
     Button btnSave;
-    String sendEmail, visitor_id;
+    String sendEmail, visitor_id, url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,12 @@ public class Add4Visitor extends AppCompatActivity {
         Intent i = getIntent();
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         final int id = pref.getInt("isLoggedIn", -1);
+        String user = pref.getString("user","guard");
+        if(user.equalsIgnoreCase("host")){
+            url = "https://pyramidal-drift.000webhostapp.com/addVisitor.php";
+        } else {
+            url = "https://pyramidal-drift.000webhostapp.com/addSignInVisitor.php";
+        }
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +88,7 @@ public class Add4Visitor extends AppCompatActivity {
                     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
 
-                        HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/addVisitor.php");
+                        HttpRequest request = new HttpRequest(url);
                         request.addData("fullname", name);
                         request.addData("email", email);
                         request.addData("mode", "");
@@ -100,7 +106,7 @@ public class Add4Visitor extends AppCompatActivity {
                             visitor_id = jsonObj.getString("just_created_id");
                             sendEmail = email;
                             new SendMail().execute();
-                            request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/addVisitor.php");
+                            request = new HttpRequest(url);
                             request.addData("fullname", name2);
                             request.addData("email", email2);
                             request.addData("mode", "");
@@ -119,7 +125,7 @@ public class Add4Visitor extends AppCompatActivity {
                                 sendEmail = email2;
                                 visitor_id = visitor_id2;
                                 new SendMail().execute();
-                                request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/addVisitor.php");
+                                request = new HttpRequest(url);
                                 request.addData("fullname", name3);
                                 request.addData("email", email3);
                                 request.addData("mode", "");
@@ -138,7 +144,7 @@ public class Add4Visitor extends AppCompatActivity {
                                     sendEmail = email3;
                                     visitor_id = visitor_id3;
                                     new SendMail().execute();
-                                    request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/addVisitor.php");
+                                    request = new HttpRequest(url);
                                     request.addData("fullname", name4);
                                     request.addData("email", email4);
                                     request.addData("mode", "");

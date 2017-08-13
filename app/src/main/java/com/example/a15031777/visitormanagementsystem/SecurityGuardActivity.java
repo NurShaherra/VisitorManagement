@@ -41,6 +41,7 @@ public class SecurityGuardActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
                     Intent i = new Intent(SecurityGuardActivity.this, ChooseAddActivity.class);
+                    edit.putString("user","guard").commit();
                     startActivity(i);
                 } else if (position == 1) {
                     Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
