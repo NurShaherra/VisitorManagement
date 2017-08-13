@@ -5,9 +5,9 @@ package com.example.a15031777.visitormanagementsystem;
  */
 
 public class Report {
-    private int reportId;
+    private String reportId;
     private String managerName;
-    private int numPeopleSignedIn;
+    private String numPeopleSignedIn;
     private String createdDate;
 
     public Report() {
@@ -22,19 +22,19 @@ public class Report {
         this.managerName = managerName;
     }
 
-    public int getReportId() {
+    public String getReportId() {
         return reportId;
     }
 
-    public void setReportId(int reportId) {
+    public void setReportId(String reportId) {
         this.reportId = reportId;
     }
 
-    public int getNumPeopleSignedIn() {
+    public String getNumPeopleSignedIn() {
         return numPeopleSignedIn;
     }
 
-    public void setNumPeopleSignedIn(int numPeopleSignedIn) {
+    public void setNumPeopleSignedIn(String numPeopleSignedIn) {
         this.numPeopleSignedIn = numPeopleSignedIn;
     }
 

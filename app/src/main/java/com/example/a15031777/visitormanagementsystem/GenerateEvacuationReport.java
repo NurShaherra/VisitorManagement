@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static android.R.attr.start;
+
 public class GenerateEvacuationReport extends AppCompatActivity {
     ImageButton ibGReport;
     TextView tvTitle;
@@ -30,10 +32,10 @@ public class GenerateEvacuationReport extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visitor_information);
+        setContentView(R.layout.activity_generate_evacuation_report);
 
         ibGReport = (ImageButton) findViewById(R.id.ib);
-        tvTitle = (TextView) findViewById(R.id.textViewTitle);
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
         lvGReport = (ListView) findViewById(R.id.lvGReport);
         intent = getIntent();
         al = new ArrayList<String>();
@@ -55,7 +57,7 @@ public class GenerateEvacuationReport extends AppCompatActivity {
             //helper class - parse in the http url
             final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/create_E_Report.php");
             //specify the method
-            request.setMethod("POST");
+            request.setMethod("GET");
             //call the webservice
             request.execute();
             try {
@@ -64,14 +66,11 @@ public class GenerateEvacuationReport extends AppCompatActivity {
                 System.out.println(">>" + jsonString);
 
                 //do something with json string
-                JSONArray jsonArray = new JSONArray(jsonString);
+                //JSONArray jsonArray = new JSONArray(jsonString);
+                JSONObject jObj = new JSONObject(jsonString);
+                // Populate the arraylist
+                al.add("Number of visitor Signed-in: " + jObj.getString("num_of_people_signed_in"));
 
-                // Populate the arraylist personList
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    al.add("Number of visitor Signed-in: " + jObj.getString("num_of_people_signed_in"));
-
-                }
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
                 lvGReport.setAdapter(aa);
                 aa.notifyDataSetChanged();
@@ -86,7 +85,7 @@ public class GenerateEvacuationReport extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent a = new Intent(GenerateEvacuationReport.this, SignedInUserInfo_generateEReport.class);
-
+                startActivity(a);
             }
         });
     }

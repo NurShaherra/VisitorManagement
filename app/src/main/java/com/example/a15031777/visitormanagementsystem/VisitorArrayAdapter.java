@@ -33,7 +33,7 @@ public class VisitorArrayAdapter extends ArrayAdapter<Visitor> {
 
         //Match the UI components with Java variables
         tvId = (TextView) rowView.findViewById(R.id.textViewId);
-        tv = (TextView) rowView.findViewById(R.id.textViewTitle);
+        tv = (TextView) rowView.findViewById(R.id.textViewName);
         Visitor note = notes.get(position);
         tv.setText("Visitor's full name: " + note.getFullname());
         tvId.setText("Visitor ID: " + note.getId());

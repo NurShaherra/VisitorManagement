@@ -1,8 +1,6 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +32,7 @@ public class VisitorInfo2Adapter extends ArrayAdapter<Report> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row_generate_report, parent, false);
+        View rowView = inflater.inflate(R.layout.row_generate_report2, parent, false);
 
         // Get the ImageView object
         ib = (ImageButton) rowView.findViewById(R.id.ib);
