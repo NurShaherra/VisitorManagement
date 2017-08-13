@@ -146,7 +146,7 @@ public class Add2Visitor extends AppCompatActivity {
             String aEmailList[] = {email};
             intent.putExtra(Intent.EXTRA_EMAIL, aEmailList);
             intent.putExtra(Intent.EXTRA_SUBJECT, "QR Code");
-            intent.putExtra(Intent.EXTRA_TEXT, "Please show the QR Code attached to the Security Guard to scan when signing in and out.\nThe QR Code atttached will indicate which QR code belongs to you.\nThank you!");
+            intent.putExtra(Intent.EXTRA_TEXT, "Please show the QR Code attached to the Security Guard to scan when signing in and out.\nThe QR Code attached will indicate which QR code belongs to you.\nThank you!");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
             intent.setType("message/rfc822");
