@@ -262,7 +262,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_host, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -275,6 +275,10 @@ public class DisplayVisitorInfo extends AppCompatActivity {
             SharedPreferences.Editor edit = pref.edit();
             edit.putInt("isLoggedIn", -1).commit();
             Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
+            startActivity(i);
+            return true;
+        } else if (id == R.id.add) {
+            Intent i = new Intent(DisplayVisitorInfo.this, ChooseAddActivity.class);
             startActivity(i);
             return true;
         }

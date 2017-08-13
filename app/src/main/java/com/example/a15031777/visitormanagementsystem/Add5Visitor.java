@@ -36,7 +36,7 @@ public class Add5Visitor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_visitor_2);
+        setContentView(R.layout.activity_add_visitor_5);
         etName = (EditText) findViewById(R.id.editTextUserName);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etMobile = (EditText) findViewById(R.id.editTextUnit);

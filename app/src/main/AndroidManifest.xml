@@ -45,6 +45,9 @@
         <activity android:name=".SignInManuallyActivity" />
         <activity android:name=".AddUser" />
         <activity android:name=".Add2Visitor" />
+        <activity android:name=".Add3Visitor" />
+        <activity android:name=".Add4Visitor" />
+        <activity android:name=".Add5Visitor" />
         <activity android:name=".ChooseAddActivity" />
         <activity android:name=".EditVisitor" />
     </application>
