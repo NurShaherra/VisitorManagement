@@ -311,7 +311,7 @@ public class DisplayUserInfo extends AppCompatActivity {
             startActivity(i);
             return true;
         } else if (id == R.id.add){
-            Intent i = new Intent(DisplayUserInfo.this, ChooseAddActivity.class);
+            Intent i = new Intent(DisplayUserInfo.this, AddUser.class);
             startActivity(i);
             return true;
         }
