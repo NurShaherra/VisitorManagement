@@ -21,8 +21,8 @@ import static com.example.a15031777.visitormanagementsystem.R.id.lvVisitor;
 
 public class ViewEvacuationReport extends AppCompatActivity {
     ListView lv;
-    ArrayAdapter<Report>aa;
-    ArrayList<Report> reportList;
+    ArrayAdapter<Report> aa;
+    ArrayList<Report> al;
     Intent intent;
 
     @Override
@@ -32,6 +32,7 @@ public class ViewEvacuationReport extends AppCompatActivity {
 
         lv = (ListView) this.findViewById(R.id.lvViewEvacuationReport);
         intent = getIntent();
+        al = new ArrayList<Report>();
 
         // Check if there is network access
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -44,6 +45,10 @@ public class ViewEvacuationReport extends AppCompatActivity {
             request.setMethod("GET");
             //call the webservice
             request.execute();
+
+            aa = new ReportAdapter(this, R.layout.row, al);
+            lv.setAdapter(aa);
+
             try {
                 //get the response back
                 String jsonString = request.getResponse();
@@ -55,17 +60,14 @@ public class ViewEvacuationReport extends AppCompatActivity {
                 // Populate the arraylist personList
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
-
                     Report report = new Report();
-                    report.setReportId(Integer.parseInt(jObj.getString("eReport_id")));
-                    report.setManagerName(jObj.getString("manager_on_duty"));
-                    report.setNumPeopleSignedIn(Integer.parseInt(jObj.getString("num_of_people_signed_in")));
-                    report.setCreatedDate(jObj.getString("eReport_created_date"));
-
-                    reportList.add(report);
+                    report.setReportId("Report ID: " + jObj.getString("eReport_id"));
+                    report.setManagerName("Manager on-duty: " + jObj.getString("manager_on_duty"));
+                    report.setNumPeopleSignedIn("Number of visitor signed-in: " + jObj.getString("num_of_people_signed_in"));
+                    report.setCreatedDate("Report Created Date: " + jObj.getString("eReport_created_date"));
+                    al.add(report);
                 }
-                aa = new ReportAdapter(this, R.layout.row, reportList);
-                lv.setAdapter(aa);
+
                 aa.notifyDataSetChanged();
 
             } catch (Exception e) {

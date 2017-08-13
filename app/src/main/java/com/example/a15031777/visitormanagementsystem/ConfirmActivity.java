@@ -47,7 +47,7 @@ public class ConfirmActivity extends AppCompatActivity {
         final String arrivedBy = i.getStringExtra("by");
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ConfirmActivity.this);
         String sign = pref.getString("sign", "");
-        tvTitle = (TextView) findViewById(R.id.textViewTitle);
+        tvTitle = (TextView) findViewById(R.id.textViewName);
         tvName = (TextView) findViewById(R.id.textViewFullName);
         tvEmail = (TextView) findViewById(R.id.textViewEmail);
         tvNum = (TextView) findViewById(R.id.textViewNum);
@@ -231,7 +231,6 @@ public class ConfirmActivity extends AppCompatActivity {
             sender.setTo(new String[]{email});
             sender.setFrom("vms.fyp@gmail.com");
             sender.setSubject("A visitor signed in.");
-            sender.setBody("Your visitor, " + name + ", has just signed in!");
             sender.setBody("Your visitor, " + name + ", has just signed in!");
             try {
                 if (sender.send()) {

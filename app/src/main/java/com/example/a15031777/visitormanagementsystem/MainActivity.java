@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                                     Intent i = new Intent(MainActivity.this, AdminActivity.class);
                                     startActivity(i);
                                 } else if (role.equalsIgnoreCase("manager")) {
-                                    Toast.makeText(MainActivity.this, "Test Manager", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(MainActivity.this, ManagerActivity.class);
                                     startActivity(i);
                                 } else if (role.equalsIgnoreCase("Host")) {

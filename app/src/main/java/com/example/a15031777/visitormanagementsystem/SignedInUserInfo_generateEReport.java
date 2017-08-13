@@ -14,18 +14,18 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SignedInUserInfo_generateEReport extends AppCompatActivity {
+public class SignedInUserInfo_generateEReport extends GenerateEvacuationReport {
     ListView lv;
-    ArrayAdapter<Report> aa;
-    ArrayList<Report> reportList;
+    ArrayAdapter<GenerateInfo> aa;
+    ArrayList<GenerateInfo> al;
     Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_evacuation_report);
+        setContentView(R.layout.activity_signed_in_user_info_generate_ereport);
 
-        lv = (ListView) this.findViewById(R.id.lvViewEvacuationReport);
+        lv = (ListView) this.findViewById(R.id.lv);
         intent = getIntent();
 
         // Check if there is network access
@@ -34,9 +34,9 @@ public class SignedInUserInfo_generateEReport extends AppCompatActivity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //helper class - parse in the http url
-            final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/get_E_Report.php");
+            final HttpRequest request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/create_E_Report.php");
             //specify the method
-            request.setMethod("GET");
+            request.setMethod("POST");
             //call the webservice
             request.execute();
             try {
@@ -51,15 +51,17 @@ public class SignedInUserInfo_generateEReport extends AppCompatActivity {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
 
-                    Report report = new Report();
-                    report.setReportId(Integer.parseInt(jObj.getString("eReport_id")));
-                    report.setManagerName(jObj.getString("manager_on_duty"));
-                    report.setNumPeopleSignedIn(Integer.parseInt(jObj.getString("num_of_people_signed_in")));
-                    report.setCreatedDate(jObj.getString("eReport_created_date"));
+                    GenerateInfo info = new GenerateInfo();
+                    // info.setVisitor_id(Integer.parseInt("Visitor ID: "+jObj.getString("visitor_id")));
+                    info.setVisitor_id("Visitor ID: " + jObj.getString("visitor_id"));
+                    info.setFullName("Full Name:" + jObj.getString("full_name"));
+                    info.setEmail("Email: " + jObj.getString("email_address"));
+                    info.setMode_of_transport("Arrival by: " + jObj.getString("mode_of_transport"));
+                    info.setMobile_number("Mobile Number: " + jObj.getString("mobile_number"));
 
-                    reportList.add(report);
+                    al.add(info);
                 }
-                aa = new ReportAdapter(this, R.layout.row, reportList);
+                aa = new GenerateInfoAdapter(this, R.layout.row_generate_report2, al);
                 lv.setAdapter(aa);
                 aa.notifyDataSetChanged();
 
