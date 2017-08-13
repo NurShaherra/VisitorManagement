@@ -13,16 +13,16 @@ import java.util.ArrayList;
  * Created by 15031777 on 8/8/2017.
  */
 
-public class VisitorAdapter extends ArrayAdapter<Visitor> {
+public class VisitorAdapter extends ArrayAdapter<Visitor2> {
 
-    private ArrayList<Visitor> visitor;
+    private ArrayList<Visitor2> visitor;
     private Context context;
     private TextView fullName;
     private TextView email;
-//    private TextView mobile;
+    private TextView mobile;
 
 
-    public VisitorAdapter(Context context, int resource, ArrayList<Visitor> objects){
+    public VisitorAdapter(Context context, int resource, ArrayList<Visitor2> objects){
         super(context, resource, objects);
         // Store the food that is passed to this adapter
         visitor = objects;
@@ -44,18 +44,18 @@ public class VisitorAdapter extends ArrayAdapter<Visitor> {
         // Get the TextView object
         fullName = (TextView) rowView.findViewById(R.id.textViewFullName);
         email = (TextView) rowView.findViewById(R.id.textViewEmail);
-//        mobile = (TextView) rowView.findViewById(R.id.textViewMobile);
+        mobile = (TextView) rowView.findViewById(R.id.textViewMobile);
 
 
         // The parameter "position" is the index of the
         //  row ListView is requesting.
         //  We get back the food at the same index.
-        Visitor currentFood = visitor.get(position);
+        Visitor2 currentFood = visitor.get(position);
         // Set the TextView to show the food
 
         fullName.setText(currentFood.getFullname());
         email.setText(currentFood.getEmail());
-//        mobile.setText(currentFood.getMobile());
+        mobile.setText(currentFood.getMobile());
 
 
         // Return the nicely done up View to the ListView

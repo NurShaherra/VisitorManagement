@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class DisplayVisitorInfo extends AppCompatActivity {
 
     Intent intent;
-    ArrayList<Visitor> al;
-    ArrayAdapter<Visitor> aa;
+    ArrayList<Visitor2> al;
+    ArrayAdapter<Visitor2> aa;
     ListView listView;
     Spinner spn;
 
@@ -41,10 +41,10 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);
         intent = getIntent();
-        al = new ArrayList<Visitor>();
+        al = new ArrayList<Visitor2>();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.roles, android.R.layout.simple_spinner_item);
+                R.array.roles2, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spn.setAdapter(adapter);
 
@@ -82,14 +82,14 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("admin")){
-                                    Visitor visitor = new Visitor();
+                                    Visitor2 visitor = new Visitor2();
                                     visitor.setId(jObj.getInt("visitor_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
                                     visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                    visitor.setSign_in(jObj.getInt("signed_in"));
-                                    visitor.setMobile(jObj.getInt("mobile_number"));
-                                    visitor.setUserId(jObj.getInt("user_id"));
+                                    visitor.setSign_in(jObj.getString("signed_in"));
+                                    visitor.setMobile(jObj.getString("mobile_number"));
+                                    visitor.setUserId(jObj.getString("user_id"));
                                     al.add(visitor);
                                 }
                             }
@@ -112,14 +112,14 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("security guard")){
-                                    Visitor visitor = new Visitor();
+                                    Visitor2 visitor = new Visitor2();
                                     visitor.setId(jObj.getInt("visitor_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
                                     visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                    visitor.setSign_in(jObj.getInt("signed_in"));
-                                    visitor.setMobile(jObj.getInt("mobile_number"));
-                                    visitor.setUserId(jObj.getInt("user_id"));
+                                    visitor.setSign_in(jObj.getString("signed_in"));
+                                    visitor.setMobile(jObj.getString("mobile_number"));
+                                    visitor.setUserId(jObj.getString("user_id"));
                                     al.add(visitor);
                                 }
                             }
@@ -127,36 +127,7 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    } else if (selectedItem.equalsIgnoreCase("Manager")){
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
 
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
-
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("manager")){
-                                    Visitor visitor = new Visitor();
-                                    visitor.setId(jObj.getInt("visitor_id"));
-                                    visitor.setFullname(jObj.getString("full_name"));
-                                    visitor.setEmail(jObj.getString("email_address"));
-                                    visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                    visitor.setSign_in(jObj.getInt("signed_in"));
-                                    visitor.setMobile(jObj.getInt("mobile_number"));
-                                    visitor.setUserId(jObj.getInt("user_id"));
-                                    al.add(visitor);
-                                }
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
                     } else if (selectedItem.equalsIgnoreCase("Host")) {
                         al.clear();
                         try {
@@ -172,14 +143,14 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
                                 String role = jObj.getString("user_role");
                                 if (role.equalsIgnoreCase("host")){
-                                    Visitor visitor = new Visitor();
+                                    Visitor2 visitor = new Visitor2();
                                     visitor.setId(jObj.getInt("visitor_id"));
                                     visitor.setFullname(jObj.getString("full_name"));
                                     visitor.setEmail(jObj.getString("email_address"));
                                     visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                                    visitor.setSign_in(jObj.getInt("signed_in"));
-                                    visitor.setMobile(jObj.getInt("mobile_number"));
-                                    visitor.setUserId(jObj.getInt("user_id"));
+                                    visitor.setSign_in(jObj.getString("signed_in"));
+                                    visitor.setMobile(jObj.getString("mobile_number"));
+                                    visitor.setUserId(jObj.getString("user_id"));
                                     al.add(visitor);
                                 }
                             }
@@ -203,16 +174,15 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jObj = jsonArray.getJSONObject(i);
-
-                                String visitorId = jObj.getString("visitor_id");
-                                String name = jObj.getString("full_name");
-                                String email = jObj.getString("email_address");
-                                String mode = jObj.getString("mode_of_transport");
-                                String sign_in = jObj.getString("signed_in");
-                                String mobile = jObj.getString("mobile_number");
-                                String userId = jObj.getString("user_id");
-                                Visitor v = new Visitor(Integer.parseInt(visitorId), name, email, Integer.parseInt(mobile), mode, Integer.parseInt(sign_in), Integer.parseInt(userId));
-                                al.add(v);
+                                Visitor2 visitor = new Visitor2();
+                                visitor.setId(jObj.getInt("visitor_id"));
+                                visitor.setFullname(jObj.getString("full_name"));
+                                visitor.setEmail(jObj.getString("email_address"));
+                                visitor.setTransportmode(jObj.getString("mode_of_transport"));
+                                visitor.setSign_in(jObj.getString("signed_in"));
+                                visitor.setMobile(jObj.getString("mobile_number"));
+                                visitor.setUserId(jObj.getString("user_id"));
+                                al.add(visitor);
                             }
 
                         } catch (Exception e) {
@@ -273,15 +243,14 @@ public class DisplayVisitorInfo extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(jsonString);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jObj = jsonArray.getJSONObject(i);
-
-                    Visitor visitor = new Visitor();
+                    Visitor2 visitor = new Visitor2();
                     visitor.setId(jObj.getInt("visitor_id"));
                     visitor.setFullname(jObj.getString("full_name"));
                     visitor.setEmail(jObj.getString("email_address"));
                     visitor.setTransportmode(jObj.getString("mode_of_transport"));
-                    visitor.setSign_in(jObj.getInt("signed_in"));
-                    visitor.setMobile(jObj.getInt("mobile_number"));
-                    visitor.setUserId(jObj.getInt("user_id"));
+                    visitor.setSign_in(jObj.getString("signed_in"));
+                    visitor.setMobile(jObj.getString("mobile_number"));
+                    visitor.setUserId(jObj.getString("user_id"));
                     al.add(visitor);
                 }
             } catch (Exception e) {
