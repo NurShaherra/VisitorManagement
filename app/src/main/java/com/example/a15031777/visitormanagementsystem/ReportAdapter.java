@@ -36,7 +36,7 @@ public class ReportAdapter extends ArrayAdapter<Report> {
 
         // Get the View object
         tvId = (TextView) rowView.findViewById(R.id.textViewId);
-        tvName = (TextView) rowView.findViewById(R.id.textViewName);
+        tvName = (TextView) rowView.findViewById(R.id.textViewNum);
         tvNumSignedIn = (TextView) rowView.findViewById(R.id.textViewNumSignedIn);
         tvCreatedDate = (TextView) rowView.findViewById(R.id.textViewCreatedDate);
 

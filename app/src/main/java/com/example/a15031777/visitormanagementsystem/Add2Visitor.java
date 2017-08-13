@@ -1,12 +1,13 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,12 +27,15 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 /* DONE BY 15017484 */
 public class Add2Visitor extends AppCompatActivity {
     EditText etName, etEmail, etMobile, etName2, etEmail2, etMobile2;
     Button btnSave;
+    String sendEmail,visitor_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,16 +84,9 @@ public class Add2Visitor extends AppCompatActivity {
                             Log.d("JsonString", "jsonString: " + jsonString);
 
                             JSONObject jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
-                            String visitor_id = jsonObj.getString("just_created_id");
-                            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                            try {
-                                BitMatrix bitMatrix = multiFormatWriter.encode(visitor_id, BarcodeFormat.QR_CODE, 200, 200);
-                                BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                                Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                                shareBitmap(bitmap, "qrcode", email);
-                            } catch (WriterException e) {
-                                e.printStackTrace();
-                            }
+                            visitor_id = jsonObj.getString("just_created_id");
+                            sendEmail = email;
+                            new SendMail().execute();
                             request = new HttpRequest("https://pyramidal-drift.000webhostapp.com/addVisitor.php");
                             request.addData("fullname", name2);
                             request.addData("email", email2);
@@ -106,23 +103,15 @@ public class Add2Visitor extends AppCompatActivity {
 
                                 jsonObj = (JSONObject) new JSONTokener(jsonString).nextValue();
                                 String visitor_id2 = jsonObj.getString("just_created_id");
-                                multiFormatWriter = new MultiFormatWriter();
-                                try {
-                                    BitMatrix bitMatrix = multiFormatWriter.encode(visitor_id2, BarcodeFormat.QR_CODE, 200, 200);
-                                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                                    shareBitmap(bitmap, "qrcode", email2);
-                                } catch (WriterException e) {
-                                    e.printStackTrace();
-                                }
-
+                                sendEmail = email2;
+                                visitor_id = visitor_id2;
+                                new SendMail().execute();
                                 Toast.makeText(getBaseContext(), "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
-                                finish();
+                                Intent i = new Intent(getBaseContext(),MainActivity.class);
+                                startActivity(i);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            Toast.makeText(getBaseContext(), "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
-                            finish();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -133,27 +122,98 @@ public class Add2Visitor extends AppCompatActivity {
             }
         });
     }
+    private class SendMail extends AsyncTask<String, Void, Integer> {
+        ProgressDialog pd = null;
+        String error = null;
+        Integer result;
 
-    private void shareBitmap(Bitmap bitmap, String fileName, String email) {
-        try {
-            File file = new File(getApplicationContext().getExternalCacheDir(), fileName + ".png");
-            FileOutputStream fOut = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
-            fOut.flush();
-            fOut.close();
-            file.setReadable(true, false);
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            String aEmailList[] = {email};
-            intent.putExtra(Intent.EXTRA_EMAIL, aEmailList);
-            intent.putExtra(Intent.EXTRA_SUBJECT, "QR Code");
-            intent.putExtra(Intent.EXTRA_TEXT, "Please show the QR Code attached to the Security Guard to scan when signing in and out.\nThe QR Code attached will indicate which QR code belongs to you.\nThank you!");
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-            intent.setType("message/rfc822");
-            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-        } catch (Exception e) {
-            e.printStackTrace();
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+            pd = new ProgressDialog(getBaseContext());
+            pd.setTitle("Sending Mail");
+            pd.setMessage("Please wait...");
+            pd.setCancelable(false);
+            pd.show();
         }
 
+        @Override
+        protected Integer doInBackground(String... params) {
+            // TODO Auto-generated method stub
+            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+            BitMatrix bitMatrix = null;
+            try {
+                bitMatrix = multiFormatWriter.encode(visitor_id, BarcodeFormat.QR_CODE, 200, 200);
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+            File file = new File(getApplicationContext().getExternalCacheDir(), "qrcode.png");
+            FileOutputStream fOut = null;
+            try {
+                fOut = new FileOutputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+            try {
+                fOut.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fOut.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            file.setReadable(true, false);
+            GMailSender sender = new GMailSender("vms.fyp@gmail.com", "fyp12345");
+
+            sender.setTo(new String[]{sendEmail});
+            sender.setFrom("vms.fyp@gmail.com");
+            sender.setSubject("QR Code");
+            sender.setBody("Please show the QR Code attached to the Security Guard to scan when signing in and out. Thank you!");
+            try {
+                sender.addAttachment(file.getAbsolutePath());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if (sender.send()) {
+                    System.out.println("Message sent");
+                    return 1;
+                } else {
+                    return 2;
+                }
+            } catch (Exception e) {
+                error = e.getMessage();
+                Log.e("SendMail", e.getMessage(), e);
+            }
+
+            return 3;
+        }
+
+        protected void onPostExecute(Integer result) {
+            pd.dismiss();
+            if (error != null) {
+                Log.d("error", error);
+            }
+            if (result == 1) {
+                Toast.makeText(getBaseContext(),
+                        "Email was sent successfully.", Toast.LENGTH_LONG)
+                        .show();
+            } else if (result == 2) {
+                Toast.makeText(getBaseContext(),
+                        "Email was not sent.", Toast.LENGTH_LONG).show();
+            } else if (result == 3) {
+                Toast.makeText(getBaseContext(),
+                        "There was a problem sending the email.",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
     }
+
 }

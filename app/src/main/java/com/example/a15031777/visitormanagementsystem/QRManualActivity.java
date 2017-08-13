@@ -23,7 +23,7 @@ public class QRManualActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrmanual);
-        tv = (TextView) findViewById(R.id.textViewName);
+        tv = (TextView) findViewById(R.id.textViewNum);
         btnManual = (Button) findViewById(R.id.buttonManual);
         btnQr = (Button) findViewById(R.id.buttonQR);
         final Activity activity = this;

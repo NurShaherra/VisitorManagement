@@ -27,7 +27,7 @@
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Visitor"
@@ -41,7 +41,7 @@
                 android:layout_marginStart="14dp" />
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/imageButton"
@@ -54,9 +54,9 @@
                 android:id="@+id/textViewCreateDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textViewName"
-                android:layout_alignStart="@+id/textViewName"
-                android:layout_below="@+id/textViewName"
+                android:layout_alignLeft="@+id/textViewNum"
+                android:layout_alignStart="@+id/textViewNum"
+                android:layout_below="@+id/textViewNum"
                 android:layout_marginTop="25dp"
                 android:text="@string/fullname" />
 

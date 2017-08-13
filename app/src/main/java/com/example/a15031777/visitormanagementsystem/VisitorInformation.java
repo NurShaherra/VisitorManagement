@@ -31,7 +31,7 @@ public class VisitorInformation extends AppCompatActivity {
         setContentView(R.layout.activity_visitor_information);
 
         ibVInfo = (ImageButton) findViewById(R.id.ib);
-        tvTitle = (TextView) findViewById(R.id.textViewName);
+        tvTitle = (TextView) findViewById(R.id.textViewNum);
         lvVisitor = (ListView) findViewById(R.id.lvVisitor);
         intent = getIntent();
         al = new ArrayList<String>();
