@@ -1,13 +1,11 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,12 +48,12 @@ public class EditVisitor extends AppCompatActivity {
                 Log.d("Test", jsonString);
 
                 JSONObject jsonObj = new JSONObject(jsonString);
-                etFullname = (EditText) findViewById(R.id.editTextfullname);
+                etFullname = (EditText) findViewById(R.id.editTextusername);
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
-                etsignedin = (EditText) findViewById(R.id.editTextSignedIn);
-                etmode = (EditText) findViewById(R.id.editTextMode);
-                etNumber = (EditText) findViewById(R.id.editTextMobile);
-                etunitid = (EditText) findViewById(R.id.editTextUnit_id);
+                etsignedin = (EditText) findViewById(R.id.editTextFullName);
+                etmode = (EditText) findViewById(R.id.editTextRole);
+                etNumber = (EditText) findViewById(R.id.editTextUnit);
+                etunitid = (EditText) findViewById(R.id.editTextBlock);
 
                 //get string - is the webservice from the output eg:
                 etFullname.setText(jsonObj.getString("full_name"));

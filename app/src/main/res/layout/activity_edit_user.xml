@@ -57,7 +57,7 @@
         android:text="Delete" />
 
     <EditText
-        android:id="@+id/editTextfullname"
+        android:id="@+id/editTextusername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView10"
         android:layout_alignStart="@+id/textView10"
-        android:layout_below="@+id/editTextfullname"
+        android:layout_below="@+id/editTextusername"
         android:layout_marginTop="16dp"
         android:text="Email:" />
 
@@ -85,8 +85,8 @@
         android:inputType="textEmailAddress"
         android:layout_alignBaseline="@+id/textView11"
         android:layout_alignBottom="@+id/textView11"
-        android:layout_alignLeft="@+id/editTextfullname"
-        android:layout_alignStart="@+id/editTextfullname" />
+        android:layout_alignLeft="@+id/editTextusername"
+        android:layout_alignStart="@+id/editTextusername" />
 
     <TextView
         android:id="@+id/textView12"
@@ -111,7 +111,7 @@
         android:layout_toEndOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/editTextMobile"
+        android:id="@+id/editTextUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Unit Address:"

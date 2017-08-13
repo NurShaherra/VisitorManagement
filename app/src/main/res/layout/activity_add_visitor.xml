@@ -51,7 +51,7 @@
                 android:text="@string/fullname" />
 
             <EditText
-                android:id="@+id/editTextfullname"
+                android:id="@+id/editTextusername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/textViewNum"
@@ -64,9 +64,9 @@
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextfullname"
-                android:layout_alignStart="@+id/editTextfullname"
-                android:layout_below="@+id/editTextfullname"
+                android:layout_alignLeft="@+id/editTextusername"
+                android:layout_alignStart="@+id/editTextusername"
+                android:layout_below="@+id/editTextusername"
                 android:layout_marginTop="25dp"
                 android:text="@string/email" />
 
@@ -91,7 +91,7 @@
                 android:text="@string/mobileNum" />
 
             <EditText
-                android:id="@+id/editTextMobile"
+                android:id="@+id/editTextUnit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/editTextEmail"
@@ -105,9 +105,9 @@
                 android:id="@+id/buttonSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editTextMobile"
-                android:layout_alignRight="@+id/editTextMobile"
-                android:layout_below="@+id/editTextMobile"
+                android:layout_alignEnd="@+id/editTextUnit"
+                android:layout_alignRight="@+id/editTextUnit"
+                android:layout_below="@+id/editTextUnit"
                 android:layout_marginTop="25dp"
                 android:text="@string/save" />
 

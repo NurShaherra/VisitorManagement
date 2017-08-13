@@ -1,13 +1,11 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +29,9 @@ public class EditUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        int id = pref.getInt("isLoggedIn", -1);
+        String role = pref.getString("role", "");
 
         Intent intent = getIntent();
         btnSave = (Button) findViewById(R.id.buttonSave);
@@ -52,7 +53,7 @@ public class EditUser extends AppCompatActivity {
                 Log.d("Test", jsonString);
 
                 JSONObject jsonObj = new JSONObject(jsonString);
-                etName = (EditText) findViewById(R.id.editTextfullname);
+                etName = (EditText) findViewById(R.id.editTextusername);
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
                 etUsername = (EditText) findViewById(R.id.editTextUsername);
                 etUnit = (EditText) findViewById(R.id.editTextUnitAdd);
