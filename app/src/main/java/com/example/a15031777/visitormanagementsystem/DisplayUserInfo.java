@@ -265,177 +265,34 @@ public class DisplayUserInfo extends AppCompatActivity {
             aa = new UserAdapter(this, R.layout.rowuser, al);
             listView.setAdapter(aa);
             al.clear();
-            spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String selectedItem = parent.getItemAtPosition(position).toString();
-                    if (selectedItem.equalsIgnoreCase("Administrator")) {
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
 
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
+            try {
+                //get the response back
+                String jsonString = request.getResponse();
+                System.out.println(">>" + jsonString);
 
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("admin")) {
-                                    User user = new User();
-                                    user.setId(jObj.getInt("user_id"));
-                                    user.setFullname(jObj.getString("full_name"));
-                                    user.setEmail(jObj.getString("email_address"));
-                                    user.setUsername(jObj.getString("user_name"));
-                                    user.setAddress(jObj.getString("unit_address"));
-                                    user.setBlock(jObj.getString("block_number"));
-                                    al.add(user);
-                                }
-                            }
+                //do something with json string
+                JSONArray jsonArray = new JSONArray(jsonString);
 
-                            aa.notifyDataSetChanged();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else if (selectedItem.equalsIgnoreCase("Security Guard")) {
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
-
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
-
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("security guard")) {
-                                    User user = new User();
-                                    user.setId(jObj.getInt("user_id"));
-                                    user.setFullname(jObj.getString("full_name"));
-                                    user.setEmail(jObj.getString("email_address"));
-                                    user.setUsername(jObj.getString("user_name"));
-                                    user.setAddress(jObj.getString("unit_address"));
-                                    user.setBlock(jObj.getString("block_number"));
-                                    al.add(user);
-                                }
-                            }
-
-                            aa.notifyDataSetChanged();
-
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else if (selectedItem.equalsIgnoreCase("Manager")) {
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
-
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
-
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("manager")) {
-                                    User user = new User();
-                                    user.setId(jObj.getInt("user_id"));
-                                    user.setFullname(jObj.getString("full_name"));
-                                    user.setEmail(jObj.getString("email_address"));
-                                    user.setUsername(jObj.getString("user_name"));
-                                    user.setAddress(jObj.getString("unit_address"));
-                                    user.setBlock(jObj.getString("block_number"));
-                                    al.add(user);
-                                }
-                            }
-
-                            aa.notifyDataSetChanged();
-
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else if (selectedItem.equalsIgnoreCase("Host")) {
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
-
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
-
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                String role = jObj.getString("user_role");
-                                if (role.equalsIgnoreCase("host")) {
-                                    User user = new User();
-                                    user.setId(jObj.getInt("user_id"));
-                                    user.setFullname(jObj.getString("full_name"));
-                                    user.setEmail(jObj.getString("email_address"));
-                                    user.setUsername(jObj.getString("user_name"));
-                                    user.setAddress(jObj.getString("unit_address"));
-                                    user.setBlock(jObj.getString("block_number"));
-                                    al.add(user);
-                                }
-                            }
-
-                            aa.notifyDataSetChanged();
-
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        al.clear();
-                        try {
-                            //get the response back
-                            String jsonString = request.getResponse();
-                            System.out.println(">>" + jsonString);
-
-                            //do something with json string
-                            JSONArray jsonArray = new JSONArray(jsonString);
-
-                            // Populate the arraylist personList
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jObj = jsonArray.getJSONObject(i);
-                                User user = new User();
-                                user.setId(jObj.getInt("user_id"));
-                                user.setFullname(jObj.getString("full_name"));
-                                user.setEmail(jObj.getString("email_address"));
-                                user.setUsername(jObj.getString("user_name"));
-                                user.setAddress(jObj.getString("unit_address"));
-                                user.setBlock(jObj.getString("block_number"));
-                                al.add(user);
-                            }
-
-                            aa.notifyDataSetChanged();
-
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                    aa.notifyDataSetChanged();
+                // Populate the arraylist personList
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                        User user = new User();
+                        user.setId(jObj.getInt("user_id"));
+                        user.setFullname(jObj.getString("full_name"));
+                        user.setEmail(jObj.getString("email_address"));
+                        user.setUsername(jObj.getString("user_name"));
+                        user.setAddress(jObj.getString("unit_address"));
+                        user.setBlock(jObj.getString("block_number"));
+                        al.add(user);
 
                 }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
+                aa.notifyDataSetChanged();
 
-                }
-            });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
     }
@@ -453,7 +310,7 @@ public class DisplayUserInfo extends AppCompatActivity {
         int id = item.getItemId();
 
 
-        if (id == R.id.menu_logout) {
+        if (id == R.id.logout) {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(DisplayUserInfo.this);
             SharedPreferences.Editor edit = pref.edit();
             edit.putInt("isLoggedIn", -1).commit();
