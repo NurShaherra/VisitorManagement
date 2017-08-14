@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
@@ -42,6 +43,15 @@ public class AddVisitor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_visitor);
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
         etName = (EditText) findViewById(R.id.editTextusername);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etMobile = (EditText) findViewById(R.id.editTextUnit);

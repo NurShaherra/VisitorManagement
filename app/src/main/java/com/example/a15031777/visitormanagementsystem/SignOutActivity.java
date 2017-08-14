@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -26,6 +27,15 @@ public class SignOutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_out);
         etIC = (EditText) findViewById(R.id.editTextIC);
         btnNext = (Button) findViewById(R.id.buttonNxt);
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
         Intent i = getIntent();
         String nric = i.getStringExtra("id");
         etIC.setText(nric);

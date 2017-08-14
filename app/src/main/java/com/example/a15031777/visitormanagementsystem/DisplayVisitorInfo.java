@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -37,6 +38,16 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
+
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);

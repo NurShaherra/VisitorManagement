@@ -163,11 +163,11 @@
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextBlock"
-            android:layout_marginTop="59dp"
-            android:layout_toEndOf="@+id/textView17"
+            android:layout_marginTop="32dp"
+            android:text="Save"
+            android:layout_below="@+id/textView28"
             android:layout_toRightOf="@+id/textView17"
-            android:text="Save" />
+            android:layout_toEndOf="@+id/textView17" />
 
         <Button
             android:id="@+id/buttonDelete"
@@ -179,6 +179,28 @@
             android:layout_marginEnd="23dp"
             android:layout_marginRight="23dp"
             android:text="Delete" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView18"
+            android:layout_alignStart="@+id/textView18"
+            android:layout_below="@+id/editTextBlock"
+            android:layout_marginTop="18dp"
+            android:text="License Plate Num:"
+            android:layout_alignRight="@+id/textView13"
+            android:layout_alignEnd="@+id/textView13"
+            android:id="@+id/textView28" />
+
+        <EditText
+            android:id="@+id/editTextLicense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/editTextBlock"
+            android:layout_alignStart="@+id/editTextBlock"
+            android:layout_alignTop="@+id/textView28"
+            android:ems="10"
+            android:inputType="textMultiLine" />
     </RelativeLayout>
 
 </ScrollView>

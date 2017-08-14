@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,6 +33,16 @@ public class AdminActivity extends AppCompatActivity {
         lvThings = (ListView) findViewById(R.id.lvThings);
         Intent intent = getIntent();
         al = new ArrayList<String>();
+
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         String[] values = new String[] { "Manage Users",
                 "Manage Visitors", "View Summary"};
