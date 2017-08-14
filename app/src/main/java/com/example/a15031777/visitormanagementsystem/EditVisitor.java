@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -33,6 +34,16 @@ public class EditVisitor extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.buttonSave);
         btnDelete = (Button) findViewById(R.id.buttonDelete);
         visitorId = intent.getStringExtra("visitor");
+
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EditVisitor.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
