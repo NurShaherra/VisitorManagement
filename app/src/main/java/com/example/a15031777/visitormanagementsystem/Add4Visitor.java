@@ -96,7 +96,7 @@ public class Add4Visitor extends AppCompatActivity {
                         request.addData("userId", id + "");
                         request.setMethod("POST");
                         request.execute();
-
+                        Toast.makeText(getBaseContext(), "Ading visitors...please wait...", Toast.LENGTH_LONG).show();
                         /******************************/
                         try {
                             String jsonString = request.getResponse();

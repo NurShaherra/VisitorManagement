@@ -180,14 +180,225 @@
                 android:layout_below="@+id/textView262"
                 android:ems="10"
                 android:inputType="phone" />
+            //3.
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUnit2"
+                android:layout_alignStart="@+id/editTextUnit2"
+                android:layout_below="@+id/editTextUnit2"
+                android:layout_marginTop="25dp"
+                android:text="3." />
+
+            <TextView
+                android:id="@+id/textViewCreateDate3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView3"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="25dp"
+                android:text="@string/fullname" />
+
+            <EditText
+                android:id="@+id/editTextUserName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textViewCreateDate3"
+                android:layout_alignStart="@+id/textViewCreateDate3"
+                android:layout_below="@+id/textViewCreateDate3"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/textView243"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUserName3"
+                android:layout_alignStart="@+id/editTextUserName3"
+                android:layout_below="@+id/editTextUserName3"
+                android:layout_marginTop="25dp"
+                android:text="@string/email" />
+
+            <EditText
+                android:id="@+id/editTextEmail3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView243"
+                android:layout_alignStart="@+id/textView243"
+                android:layout_below="@+id/textView243"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView263"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextEmail3"
+                android:layout_alignStart="@+id/editTextEmail3"
+                android:layout_below="@+id/editTextEmail3"
+                android:layout_marginTop="25dp"
+                android:text="@string/mobileNum" />
+
+            <EditText
+                android:id="@+id/editTextUnit3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editTextEmail3"
+                android:layout_alignRight="@+id/editTextEmail3"
+                android:layout_below="@+id/textView263"
+                android:ems="10"
+                android:inputType="phone" />
+
+            //4.
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUnit3"
+                android:layout_alignStart="@+id/editTextUnit3"
+                android:layout_below="@+id/editTextUnit3"
+                android:layout_marginTop="25dp"
+                android:text="4." />
+
+            <TextView
+                android:id="@+id/textViewCreateDate4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_below="@+id/textView4"
+                android:layout_marginTop="25dp"
+                android:text="@string/fullname" />
+
+            <EditText
+                android:id="@+id/editTextUserName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textViewCreateDate4"
+                android:layout_alignStart="@+id/textViewCreateDate4"
+                android:layout_below="@+id/textViewCreateDate4"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/textView244"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUserName4"
+                android:layout_alignStart="@+id/editTextUserName4"
+                android:layout_below="@+id/editTextUserName4"
+                android:layout_marginTop="25dp"
+                android:text="@string/email" />
+
+            <EditText
+                android:id="@+id/editTextEmail4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView244"
+                android:layout_alignStart="@+id/textView244"
+                android:layout_below="@+id/textView244"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView264"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextEmail4"
+                android:layout_alignStart="@+id/editTextEmail4"
+                android:layout_below="@+id/editTextEmail4"
+                android:layout_marginTop="25dp"
+                android:text="@string/mobileNum" />
+
+            <EditText
+                android:id="@+id/editTextUnit4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editTextEmail4"
+                android:layout_alignRight="@+id/editTextEmail4"
+                android:layout_below="@+id/textView264"
+                android:ems="10"
+                android:inputType="phone" />
+            //5.
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUnit4"
+                android:layout_alignStart="@+id/editTextUnit4"
+                android:layout_below="@+id/editTextUnit4"
+                android:layout_marginTop="25dp"
+                android:text="5." />
+
+            <TextView
+                android:id="@+id/textViewCreateDate5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView5"
+                android:layout_alignStart="@+id/textView5"
+                android:layout_below="@+id/textView5"
+                android:layout_marginTop="25dp"
+                android:text="@string/fullname" />
+
+            <EditText
+                android:id="@+id/editTextUserName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textViewCreateDate5"
+                android:layout_alignStart="@+id/textViewCreateDate5"
+                android:layout_below="@+id/textViewCreateDate5"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/textView245"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextUserName5"
+                android:layout_alignStart="@+id/editTextUserName5"
+                android:layout_below="@+id/editTextUserName5"
+                android:layout_marginTop="25dp"
+                android:text="@string/email" />
+
+            <EditText
+                android:id="@+id/editTextEmail5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView245"
+                android:layout_alignStart="@+id/textView245"
+                android:layout_below="@+id/textView245"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView265"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editTextEmail5"
+                android:layout_alignStart="@+id/editTextEmail5"
+                android:layout_below="@+id/editTextEmail5"
+                android:layout_marginTop="25dp"
+                android:text="@string/mobileNum" />
+
+            <EditText
+                android:id="@+id/editTextUnit5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editTextEmail5"
+                android:layout_alignRight="@+id/editTextEmail5"
+                android:layout_below="@+id/textView265"
+                android:ems="10"
+                android:inputType="phone" />
             <Button
                 android:id="@+id/buttonSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editTextUnit2"
-                android:layout_alignRight="@+id/editTextUnit2"
-                android:layout_below="@+id/editTextUnit2"
+                android:layout_alignEnd="@+id/editTextUnit5"
+                android:layout_alignRight="@+id/editTextUnit5"
+                android:layout_below="@+id/editTextUnit5"
                 android:layout_marginTop="25dp"
                 android:text="@string/save" />
 

@@ -75,7 +75,6 @@ public class Add2Visitor extends AppCompatActivity {
                     ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
-
                         HttpRequest request = new HttpRequest(url);
                         request.addData("fullname", name);
                         request.addData("email", email);
@@ -84,7 +83,7 @@ public class Add2Visitor extends AppCompatActivity {
                         request.addData("userId", id + "");
                         request.setMethod("POST");
                         request.execute();
-
+                        Toast.makeText(getBaseContext(), "Ading visitors...please wait...", Toast.LENGTH_LONG).show();
                         /******************************/
                         try {
                             String jsonString = request.getResponse();
