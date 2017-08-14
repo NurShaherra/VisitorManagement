@@ -48,13 +48,11 @@
         android:id="@+id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Delete"
         android:layout_alignBaseline="@+id/buttonSave"
         android:layout_alignBottom="@+id/buttonSave"
-        android:layout_alignLeft="@+id/textViewNum"
-        android:layout_alignStart="@+id/textViewNum"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp"
-        android:text="Delete" />
+        android:layout_toRightOf="@+id/textViewNum"
+        android:layout_toEndOf="@+id/textViewNum" />
 
     <EditText
         android:id="@+id/editTextusername"
@@ -154,11 +152,11 @@
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="50dp"
         android:text="Save"
         android:layout_below="@+id/editTextNumber"
-        android:layout_alignRight="@+id/ib"
-        android:layout_alignEnd="@+id/ib" />
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
 
 
 </RelativeLayout>

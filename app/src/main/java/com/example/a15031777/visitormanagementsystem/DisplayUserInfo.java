@@ -272,6 +272,7 @@ public class DisplayUserInfo extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(jsonString);
 
                 for (int i = 0; i < jsonArray.length(); i++) {
+
                     JSONObject jObj = jsonArray.getJSONObject(i);
                         User user = new User();
                         user.setId(jObj.getInt("user_id"));
@@ -286,9 +287,9 @@ public class DisplayUserInfo extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

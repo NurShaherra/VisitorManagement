@@ -63,7 +63,7 @@ public class AddUser extends AppCompatActivity {
                         String jsonString = request.getResponse();
                         Log.d("JsonString", "jsonString: " + jsonString);
 
-                        Toast.makeText(AddUser.this, "Saved successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddUser.this, "Added successfully!", Toast.LENGTH_SHORT).show();
                         finish();
                     } catch (Exception e) {
                         e.printStackTrace();
