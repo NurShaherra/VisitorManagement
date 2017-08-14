@@ -64,7 +64,8 @@ public class ViewEvacuationReport extends AppCompatActivity {
                     report.setReportId("Report ID: " + jObj.getString("eReport_id"));
                     report.setManagerName("Manager on-duty: " + jObj.getString("manager_on_duty"));
                     report.setNumPeopleSignedIn("Number of visitor signed-in: " + jObj.getString("num_of_people_signed_in"));
-                    report.setCreatedDate("Report Created Date: " + jObj.getString("eReport_created_date"));
+                    report.setCreatedDate("Report Created Date: " + jObj.getString("eReport_created_date")+"\n\n");
+
                     al.add(report);
                 }
 

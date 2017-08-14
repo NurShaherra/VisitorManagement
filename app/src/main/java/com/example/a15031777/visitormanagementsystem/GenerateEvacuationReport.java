@@ -66,10 +66,18 @@ public class GenerateEvacuationReport extends AppCompatActivity {
                 System.out.println(">>" + jsonString);
 
                 //do something with json string
-                //JSONArray jsonArray = new JSONArray(jsonString);
-                JSONObject jObj = new JSONObject(jsonString);
-                // Populate the arraylist
-                al.add("Number of visitor Signed-in: " + jObj.getString("num_of_people_signed_in"));
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                    al.add("Number of visitor signed-in: " + jObj.getString("num_of_people_signed_in"));
+                    al.add("Visitor ID: " + jObj.getString("visitor_id"));
+                    al.add("Full Name: " + jObj.getString("full_name"));
+                    al.add("Email: " + jObj.getString("email_address"));
+                    al.add("Arrived By: " + jObj.getString("mode_of_transport"));
+                    al.add("Mobile Number: " + jObj.getString("mobile_number"));
+                    al.add(" ");
+                }
 
                 aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
                 lvGReport.setAdapter(aa);
@@ -79,14 +87,5 @@ public class GenerateEvacuationReport extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        lvGReport.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent a = new Intent(GenerateEvacuationReport.this, SignedInUserInfo_generateEReport.class);
-                startActivity(a);
-            }
-        });
     }
 }

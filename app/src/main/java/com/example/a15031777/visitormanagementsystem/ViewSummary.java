@@ -49,13 +49,6 @@ public class ViewSummary extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            //helper class - parse in the http url
-            HttpRequest request = new HttpRequest("http://localhost/FYP/getSummary.php");
-            //specify the method
-            request.setMethod("GET");
-            //call the webservice
-            request.execute();
-
             aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al);
             lv.setAdapter(aa);
 
@@ -67,13 +60,12 @@ public class ViewSummary extends AppCompatActivity {
                         al.clear();
 
                         //helper class - parse in the http url
-                        HttpRequest request = new HttpRequest("http://localhost/FYP/getSummary.php");
+                        HttpRequest request = new HttpRequest("http://localhost/FYP-VMS/getSummary.php");
                         //specify the method
                         request.setMethod("GET");
                         //call the webservice
                         request.execute();
 
-                        al.clear();
                         try {
                             //get the response back
                             String jsonString = request.getResponse();
@@ -81,6 +73,7 @@ public class ViewSummary extends AppCompatActivity {
 
                             //do something with json string
                             JSONArray jsonArray = new JSONArray(jsonString);
+                            //System.out.println(">>" + jsonArray);
 
                             // Populate the arraylist personList
                             for (int i = 0; i < jsonArray.length(); i++) {

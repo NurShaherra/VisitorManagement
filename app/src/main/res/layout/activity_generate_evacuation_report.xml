@@ -22,15 +22,15 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ib"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="19dp"
-        android:layout_toEndOf="@+id/ib"
-        android:layout_toRightOf="@+id/ib"
         android:text="@string/generateReport"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="18sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/lvGReport"
+        android:layout_toRightOf="@+id/ib"
+        android:layout_toEndOf="@+id/ib"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
 
     <ListView
         android:id="@+id/lvGReport"
