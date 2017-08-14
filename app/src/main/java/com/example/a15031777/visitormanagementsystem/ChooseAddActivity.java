@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 /* DONE BY 15017484 */
@@ -17,6 +18,15 @@ public class ChooseAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_visitor);
         btnNext = (Button) findViewById(R.id.buttonNext);
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
         spn = (Spinner) findViewById(R.id.spinnerAdd);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.numbers, android.R.layout.simple_spinner_item);
