@@ -32,7 +32,7 @@ public class ProfilePage extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.buttonSave);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        int id = pref.getInt("isLoggedIn", -1);
+        final int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
 
         Intent i = getIntent();
@@ -53,7 +53,7 @@ public class ProfilePage extends AppCompatActivity {
                 JSONObject jsonObj = new JSONObject(jsonString);
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
                 etUsername = (EditText) findViewById(R.id.editTextUsername);
-                etUnit = (EditText) findViewById(R.id.editTextUnitAdd);
+                etUnit = (EditText) findViewById(R.id.editTextUnit);
                 etBlock = (EditText) findViewById(R.id.editTextBlock);
                 //get string - is the webservice from the output eg:
                 etEmail.setText(jsonObj.getString("email_address"));
