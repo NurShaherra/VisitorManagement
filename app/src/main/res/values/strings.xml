@@ -43,6 +43,12 @@
         <item>Security Guard</item>
         <item>Host</item>
     </string-array>
+    <string-array name="summary">
+        <item>All</item>
+        <item>Date</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
     <string-array name="transport">
         <item>Foot</item>
         <item>Car</item>

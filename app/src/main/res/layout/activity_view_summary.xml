@@ -22,16 +22,21 @@
         android:id="@+id/textViewNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
         android:text="View Summary"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp"
-        android:layout_above="@+id/lvSummary"
-        android:layout_toRightOf="@+id/ib"
-        android:layout_toEndOf="@+id/ib"
-        android:layout_marginBottom="11dp" />
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/ib"
+        android:layout_centerHorizontal="true" />
 
+    <Spinner
+        android:id="@+id/spinnerSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ib"
+        android:layout_marginTop="47dp" />
 
     <ListView
         android:id="@+id/lvSummary"
@@ -39,7 +44,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ib"
-        android:layout_marginTop="18dp" />
+        android:layout_below="@+id/spinnerSummary"
+        android:layout_marginTop="12dp" />
+
 
 </RelativeLayout>
