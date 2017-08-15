@@ -41,13 +41,13 @@ public class DisplayVisitorInfo extends AppCompatActivity {
 
         ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
 
-        imgB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
+//        imgB.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);

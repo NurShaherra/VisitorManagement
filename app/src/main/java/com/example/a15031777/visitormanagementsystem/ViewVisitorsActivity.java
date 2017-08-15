@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,14 @@ public class ViewVisitorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_security_guard);
         tv = (TextView) findViewById(R.id.textViewWelcome);
         lv = (ListView) findViewById(R.id.lv);
-
+        ImageButton imgB = (ImageButton)findViewById(R.id.imageButton);
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");

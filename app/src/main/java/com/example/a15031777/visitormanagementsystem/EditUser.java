@@ -40,7 +40,7 @@ public class EditUser extends AppCompatActivity {
 
         userId = intent.getStringExtra("user");
 
-        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+        ImageButton imgB = (ImageButton) findViewById(R.id.ib);
 
         imgB.setOnClickListener(new View.OnClickListener() {
             @Override
