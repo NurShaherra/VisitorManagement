@@ -61,18 +61,16 @@ public class EditVisitor extends AppCompatActivity {
                 JSONObject jsonObj = new JSONObject(jsonString);
                 etFullname = (EditText) findViewById(R.id.editTextusername);
                 etEmail = (EditText) findViewById(R.id.editTextEmail);
-                etsignedin = (EditText) findViewById(R.id.editTextFullName);
-                etmode = (EditText) findViewById(R.id.editTextRole);
-                etNumber = (EditText) findViewById(R.id.editTextUnit);
-                etunitid = (EditText) findViewById(R.id.editTextBlock);
+                etNumber = (EditText) findViewById(R.id.editTextMobile);
+                etmode = (EditText) findViewById(R.id.etMode);
+
 
                 //get string - is the webservice from the output eg:
                 etFullname.setText(jsonObj.getString("full_name"));
                 etEmail.setText(jsonObj.getString("email_address"));
                 etmode.setText(jsonObj.getString("mode_of_transport"));
                 etNumber.setText(jsonObj.getString("mobile_number"));
-                etunitid.setText(jsonObj.getString("user_id"));
-                etsignedin.setText(jsonObj.getString("signed_in"));
+
 
 
             } catch (Exception e) {
@@ -89,8 +87,7 @@ public class EditVisitor extends AppCompatActivity {
                     request.addData("email_address", etEmail.getText().toString());
                     request.addData("mode_of_transport", etmode.getText().toString());
                     request.addData("mobile_number", etNumber.getText().toString());
-                    request.addData("user_id", etunitid.getText().toString());
-                    request.addData("signed_in", etsignedin.getText().toString());
+
 
                     request.execute();
 

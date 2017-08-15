@@ -27,8 +27,8 @@ public class AddUser extends AppCompatActivity {
 
         etusername = (EditText) findViewById(R.id.editTextusername);
         etemail = (EditText) findViewById(R.id.editTextEmail);
-        etrole = (EditText) findViewById(R.id.editTextRole);
-        etfullname = (EditText) findViewById(R.id.editTextFullName);
+        etrole = (EditText) findViewById(R.id.etMode);
+        etfullname = (EditText) findViewById(R.id.editTextMobile);
         etunit = (EditText) findViewById(R.id.editTextUnit);
         etblock = (EditText) findViewById(R.id.editTextBlock);
         etpw = (EditText) findViewById(R.id.editTextPassword);

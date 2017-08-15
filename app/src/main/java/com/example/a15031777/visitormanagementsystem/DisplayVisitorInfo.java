@@ -39,15 +39,15 @@ public class DisplayVisitorInfo extends AppCompatActivity {
         int id = pref.getInt("isLoggedIn", -1);
         String role = pref.getString("role", "");
 
-        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+        ImageButton imgB = (ImageButton) findViewById(R.id.ib);
 
-//        imgB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DisplayVisitorInfo.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         listView = (ListView) findViewById(R.id.lvVisitor);
         spn = (Spinner) findViewById(R.id.spinnerVisitor);

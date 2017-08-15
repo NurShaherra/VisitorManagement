@@ -82,14 +82,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Role:"
-            android:layout_alignBaseline="@+id/editTextRole"
-            android:layout_alignBottom="@+id/editTextRole"
-            android:layout_toLeftOf="@+id/editTextRole"
+            android:layout_alignBaseline="@+id/etMode"
+            android:layout_alignBottom="@+id/etMode"
+            android:layout_toLeftOf="@+id/etMode"
             android:layout_alignLeft="@+id/textView5"
             android:layout_alignStart="@+id/textView5" />
 
         <EditText
-            android:id="@+id/editTextRole"
+            android:id="@+id/etMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -102,21 +102,21 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextFullName"
-            android:layout_alignBottom="@+id/editTextFullName"
+            android:layout_alignBaseline="@+id/editTextMobile"
+            android:layout_alignBottom="@+id/editTextMobile"
             android:layout_alignLeft="@+id/textView7"
             android:layout_alignStart="@+id/textView7"
             android:text="Full name:" />
 
         <EditText
-            android:id="@+id/editTextFullName"
+            android:id="@+id/editTextMobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:layout_below="@+id/editTextRole"
-            android:layout_alignLeft="@+id/editTextRole"
-            android:layout_alignStart="@+id/editTextRole" />
+            android:layout_below="@+id/etMode"
+            android:layout_alignLeft="@+id/etMode"
+            android:layout_alignStart="@+id/etMode" />
 
         <TextView
             android:id="@+id/textView17"
@@ -136,9 +136,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:layout_below="@+id/editTextFullName"
-            android:layout_alignLeft="@+id/editTextFullName"
-            android:layout_alignStart="@+id/editTextFullName" />
+            android:layout_below="@+id/editTextMobile"
+            android:layout_alignLeft="@+id/editTextMobile"
+            android:layout_alignStart="@+id/editTextMobile" />
 
         <TextView
             android:id="@+id/textView18"

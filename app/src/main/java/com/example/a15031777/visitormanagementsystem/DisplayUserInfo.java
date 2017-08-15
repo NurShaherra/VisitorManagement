@@ -40,15 +40,15 @@ public class DisplayUserInfo extends AppCompatActivity {
         intent = getIntent();
         al = new ArrayList<User>();
 
-//        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
-//
-//        imgB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(DisplayUserInfo.this, MainActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        ImageButton imgB = (ImageButton) findViewById(R.id.imageButton);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DisplayUserInfo.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.roles, android.R.layout.simple_spinner_item);
